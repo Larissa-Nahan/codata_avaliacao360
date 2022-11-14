@@ -5,4 +5,8 @@ from .forms import LoginForm
 
 
 def login(request):
-    return render(request, 'login.html')
+    # status = request.GET.get('status')
+    form = LoginForm(request.POST or None)
+    return render(request, 'login/login.html', {'form': form})
+
+
