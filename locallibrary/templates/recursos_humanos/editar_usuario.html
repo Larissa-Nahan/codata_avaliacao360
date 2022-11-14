@@ -1,0 +1,68 @@
+{% extends './home.html' %}
+
+{% block 'conteudo' %}
+<div class="col m-0 p-0">
+    <h1 class="border-bottom border-dark pl-3 w-75">Cadastrar Usuário</h1>
+    <form action="" method="post" class="">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="row d-flex justify-content-around mx-3 my-2">
+            <div class="row m-0 fieldWrapper">
+                {{ form.efetivo.errors }}
+                <label class="mb-0 font-weight-bold" for="{{ form.efetivo.efetivo }}">Servidor efetivo da Codata:</label>
+                <div>{{ form.efetivo }}</div>
+            </div>
+            <div class="row m-0 fieldWrapper">
+                {{ form.inativo.errors }}
+                <label class="mb-0 font-weight-bold" for="{{ form.inativo.inativo }}">Inativar usuário:</label>
+                <div>{{ form.inativo }}</div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column align-items-center mt-3 mx-3" style="background-color: #D9D9D9;">
+            <div class="row justify-content-center m-0">
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.diretoria.errors }}
+                    <label class="mb-0" for="{{ form.diretoria.diretoria }}">Diretoria*</label>
+                    <div>{{ form.diretoria }}</div>
+                </div>
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.gerencia.errors }}
+                    <label class="mb-0" for="{{ form.gerencia.gerencia }}">Gerência*</label>
+                    <div>{{ form.gerencia }}</div>
+                </div>
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.funcao.errors }}
+                    <label class="mb-0" for="{{ form.funcao.funcao }}">Função*</label>
+                    <div>{{ form.funcao }}</div>
+                </div>
+            </div>
+            <div class="border-bottom border-dark w-100"></div>
+            <div class="row justify-content-center m-0">
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.nome.errors }}
+                    <label class="mb-0" for="{{ form.nome.nome }}">Nome*</label>
+                    <div>{{ form.nome }}</div>
+                </div>
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.cpf.errors }}
+                    <label class="mb-0" for="{{ form.cpf.cpf }}">CPF*</label>
+                    <div>{{ form.cpf }}</div>
+                </div>
+                <div class="mx-3 my-5 fieldWrapper">
+                    {{ form.nivel.errors }}
+                    <label class="mb-0" for="{{ form.nivel.nivel }}">Nível</label>
+                    <div>{{ form.nivel }}</div>
+                </div>
+            </div>
+            <input class="border-0 px-4 py-1 mx-3 mb-5" style="background-color: #FFFCFC; border-radius: 15px;"
+                type="submit" value="Salvar">
+        </div>
+    </form>
+</div>
+
+<script>
+    
+</script>
+{% endblock %}
