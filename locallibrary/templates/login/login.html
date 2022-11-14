@@ -5,6 +5,19 @@
 
 {% block 'titulo-card' %}<img src="{% static 'logo-fundo-claro.png' %}" height="80px" class="d-inline-block align-top" alt="">{% endblock %}
 
+{% block 'alerta' %}
+    {% if status == '0' %}
+        <div class="alert alert-danger" role="alert">
+            Usuario nao encontrado
+        </div>
+        
+    {% elif status == '1' %}
+        <div class="alert alert-danger" role="alert">
+            Senha incorreta
+        </div>
+    {% endif %}
+{% endblock %}
+
 {% block 'form' %}
 <form action="{% url 'validar_login' %}" method="post" class="">
     {% csrf_token %}

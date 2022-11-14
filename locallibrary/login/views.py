@@ -15,23 +15,31 @@ def validar_login(request):
         cpf = request.POST.get('cpf')
         senha = request.POST.get('senha')
 
-        usuario = Usuario.objects.filter(cpf = cpf).filter(senha = senha)
+        usuario = Usuario.objects.filter(cpf = cpf)
+
 
         if len(usuario) == 0:
+            # usuario nao existe
             return redirect(f'/?status=0')
         else:
             request.session['usuario'] = usuario[0].id
 
-            if usuario[0].funcao == 'recursos_humanos':
-                return redirect(f'/recursos_humanos/')
-            # elif usuario[0].funcao == 'chefe':
-            #     return redirect(f'/chefe/home')
-            # elif usuario[0].funcao == 'gerente':
-            #     return redirect(f'/gerente/home')
-            # elif usuario[0].funcao == 'empregados':
-            #     return redirect(f'/empregado/home')                
+            if usuario.filter(senha = senha):
+                if usuario[0].funcao == 'recursos_humanos':
+                    return redirect(f'/recursos_humanos/')
+                # elif usuario[0].funcao == 'chefe':
+                #     return redirect(f'/chefe/home')
+                # elif usuario[0].funcao == 'gerente':
+                #     return redirect(f'/gerente/home')
+                # elif usuario[0].funcao == 'empregados':
+                #     return redirect(f'/empregado/home')                
+            else:
+                # usuario existe mas senha errada
+                return redirect(f'/?status=1')
+
     else:
-        return HttpResponse(f'/?status=0')
+        # erro no metodo
+        return HttpResponse(f'/?status=3')
     
     return redirect(f'/?status=0')
 
