@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from recursos_humanos.models import Usuario
+from .forms import LoginForm
 
-# Create your views here.
+
+def login(request):
+    return render(request, 'login.html')
