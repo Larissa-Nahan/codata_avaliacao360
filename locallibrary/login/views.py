@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from recursos_humanos.models import Usuario
 from .models import Login
-from .forms import LoginForm, RecuperarSenhaForm
+from .forms import LoginForm, RecuperarSenhaForm, NovaSenhaForm
 
 
 def login(request):
@@ -40,8 +40,6 @@ def validar_login(request):
     else:
         # erro no metodo
         return HttpResponse(f'/?status=3')
-    
-    return redirect(f'/?status=0')
 
 def recuperar_senha(request):
     status = request.GET.get('status')
@@ -53,18 +51,36 @@ def validar_email(request):
         email = request.POST.get('email')
 
         usuario = Usuario.objects.filter(email = email)
-        print(f'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa{usuario}')
 
         if len(usuario) == 0:
-            print(f'Usuario nao existe')
+            # usuario nao existe
             return redirect(f'/recuperar_senha/?status=0')
         else:
-            print(f'Usuario existe')
-            return HttpResponse(f'Foi')
-            # return redirect(f'/')          
+            # usuario existe
+            return redirect(f'/nova_senha/')
     else:
-        print(f'nao pegou metodo post')
-        return HttpResponse(f'/?status=0')
-    
-    print(f'erro')
-    return redirect(f'/?status=0')
+        # erro no metodo
+        return HttpResponse(f'/?status=3')
+
+def nova_senha(request):
+    status = request.GET.get('status')
+    form = NovaSenhaForm(request.POST or None)
+    return render(request, 'login/nova_senha.html', {'form': form, "status": status})
+
+def validar_nova_senha(request):
+    if request.method == 'POST':
+        senha = request.POST.get('senha')
+        nova_senha = request.POST.get('nova_senha')
+
+        if len(senha) < 8:
+            # senha menor que 8 caracteres
+            return redirect(f'/nova_senha/?status=0')
+        elif senha == nova_senha:
+            # senhas iguais
+            return redirect(f'/?status=2')
+        else:
+            # senhas diferentes
+            return redirect(f'/nova_senha/?status=1')
+    else:
+        # erro no metodo
+        return HttpResponse(f'/?status=3')

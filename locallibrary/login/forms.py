@@ -18,4 +18,4 @@ class RecuperarSenhaForm(ModelForm):
 class NovaSenhaForm(ModelForm):
     class Meta:
         model = Login
-        fields = ['senha']
+        fields = ['senha', 'nova_senha']

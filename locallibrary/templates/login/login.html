@@ -15,6 +15,11 @@
         <div class="alert alert-danger" role="alert">
             Senha incorreta
         </div>
+        
+    {% elif status == '2' %}
+        <div class="alert alert-success" role="alert">
+            Senha alterada com sucesso
+        </div>
     {% endif %}
 {% endblock %}
 
