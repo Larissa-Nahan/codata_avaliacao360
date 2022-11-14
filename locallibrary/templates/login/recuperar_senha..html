@@ -1,0 +1,25 @@
+{% extends 'login/base_login.html' %}
+{% load static %}
+
+{% block 'titulo' %}Recupar Senha{% endblock %}
+
+{% block 'form' %}
+<form action="" method="post" class="">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="col">
+        <div class="mx-3 mt-5 text-justify fieldWrapper">
+            {{ form.email.errors }}
+            <label class="mb-0" for="{{ form.email.email }}">Informe seu email</label>
+            <div>{{ form.email }}</div>
+        </div>
+
+        <a href="{% url 'login' %}" class="d-flex justify-self-left text-dark my-5">≪ Voltar ao Login</a>
+
+        <input class="btn text-secondary font-weight-bold text-uppercase px-5 mt-5 rounded-0"
+            style="background: #D9D9D9;" type="submit" value="Ok">
+    </div>
+</form>
+
+{% endblock %}
