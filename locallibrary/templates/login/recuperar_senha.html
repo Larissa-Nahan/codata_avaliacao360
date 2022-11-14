@@ -3,8 +3,16 @@
 
 {% block 'titulo' %}Recupar Senha{% endblock %}
 
+{% block 'alerta' %}
+    {% if status == '0' %}
+        <div class="alert alert-danger" role="alert">
+            Email nao encontrado
+        </div>
+    {% endif %}
+{% endblock %}
+
 {% block 'form' %}
-<form action="" method="post" class="">
+<form action="{% url 'validar_email' %}" method="post" class="">
     {% csrf_token %}
     {{ form.non_field_errors }}
 
