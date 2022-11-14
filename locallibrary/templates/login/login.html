@@ -6,7 +6,7 @@
 {% block 'titulo-card' %}<img src="{% static 'logo-fundo-claro.png' %}" height="80px" class="d-inline-block align-top" alt="">{% endblock %}
 
 {% block 'form' %}
-<form action="" method="post" class="">
+<form action="{% url 'validar_login' %}" method="post" class="">
     {% csrf_token %}
     {{ form.non_field_errors }}
 
