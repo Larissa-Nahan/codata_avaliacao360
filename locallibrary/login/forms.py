@@ -1,10 +1,9 @@
 from django.forms import ModelForm, TextInput, PasswordInput
-from recursos_humanos.models import Usuario
+from .models import Login
 
 class LoginForm(ModelForm):
     class Meta:
-        model = Usuario
-        # senha = CharField(label='Search')
+        model = Login
         fields = ['cpf', 'senha']
         widgets = {
             'cpf' : TextInput(attrs={'placeholder': 'CPF Usuario'}),
@@ -13,10 +12,10 @@ class LoginForm(ModelForm):
 
 class RecuperarSenhaForm(ModelForm):
     class Meta:
-        model = Usuario
+        model = Login
         fields = ['email']
 
 class NovaSenhaForm(ModelForm):
     class Meta:
-        model = Usuario
+        model = Login
         fields = ['senha']

@@ -11,7 +11,7 @@
     {{ form.non_field_errors }}
 
     <div class="col">
-                <div class="mx-3 mt-5 text-justify fieldWrapper">
+                <div class="mx-3 mt-3 text-justify fieldWrapper">
                     {{ form.cpf.errors }}
                     <label class="mb-0 font-weight-bold" for="{{ form.cpf.cpf }}">* CPF</label>
                     <div>{{ form.cpf }}</div>
@@ -26,6 +26,6 @@
                 type="submit" value="Entrar">
     </div>
 </form>
-<a href="#" class="text-center text-muted mt-2"><u>Esqueceu sua senha?</u></a>
+<a href="{% url 'recuperar_senha' %}" class="text-center text-muted mt-2"><u>Esqueceu sua senha?</u></a>
 <img class="mx-5 mt-5" src="{% static 'logos.png' %}" alt="Logos CODATA e Governo da Paraíba">
 {% endblock %}
