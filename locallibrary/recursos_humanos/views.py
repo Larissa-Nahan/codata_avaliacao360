@@ -35,3 +35,9 @@ def deletar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
     instance.delete()
     return redirect("listar_usuarios")
+
+
+def avaliacao_desempenho(request):
+    usuarios = Usuario.objects.all()
+
+    return render(request, "recursos_humanos/avaliacao_desempenho.html", {'usuarios': usuarios})

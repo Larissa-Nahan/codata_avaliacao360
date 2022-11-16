@@ -62,6 +62,7 @@ class Usuario(models.Model):
     data_criacao_usuario = models.DateField(default=datetime.now, blank=False, null=False)
     data_atualizacao_usuario = models.DateField(blank=True, null=True)
     data_exclusao_usuario = models.DateField(blank=True, null=True)   
+    ultima_avaliacao = models.DateField(blank=True, null=True)
     
     setor = models.CharField(max_length=50)
     cargo = models.CharField(max_length=50)
@@ -79,3 +80,7 @@ class Usuario(models.Model):
 
     def __str__(self) -> str:
         return self.nome
+
+class Avaliacao(models.Model):
+    nome = models.ForeignKey(Usuario, related_name='+', on_delete=models.DO_NOTHING)
+    cpf = models.ForeignKey(Usuario, related_name='+', on_delete=models.DO_NOTHING)

@@ -1,0 +1,54 @@
+{% extends './home.html' %}
+
+{% block 'conteudo' %}
+<div class="col col-9 m-0 p-0">
+
+    <h1 class="border-bottom border-dark pl-3 w-75">Avaliação de Desempenho</h1>
+
+
+
+
+
+    <form class="form mt-3 ml-4">
+        <div class="input-group mb-3">
+
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Admissão</th>
+                        <th scope="col">Última Avaliação</th>
+                        <th scope="col">Avaliar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+
+                    <tr>
+                        <td>{{ usuario.cpf }}</th>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.data_criacao_usuario }}</td>
+                        <td>{{ usuario.ultima_avaliacao }}</td>
+                        <td>avaliar</td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}
