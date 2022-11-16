@@ -31,8 +31,25 @@
                 <input type="text" class="form-control border-0 ml-3 bg-white" placeholder="{{ usuario.nome }}"
                     aria-label="{{ usuario.nome }}" aria-describedby="botao-editar" disabled>
                 <div class="input-group-append">
+                    <button class="btn btn-secondary p-2 mr-1" type="button" id="botao-deletar" data-toggle="modal"
+                        data-target="#deletar_usuario_{{usuario.id}}">Deletar</button>
                     <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-secondary p-2 mr-3"
                         id="botao-editar">Editar</a>
+                </div>
+            </div>
+
+            <div class="modal fade" id="deletar_usuario_{{usuario.id}}" tabindex="-1" role="dialog"
+                aria-labelledby="deletar_label" aria-hidden="true">
+                <div class="modal-dialog modal-lg d-flex justify-content-center" role="document">
+                    <div class="modal-content w-50" style="border-radius: 10px;">
+                        <div class="modal-body p-5 flex-column text-center">
+                            <p>Tem certeza que deseja excluir este usuário?</p>
+                            <div class="">
+                                <button type="button" class="btn bg-white border border-dark px-4" data-dismiss="modal" style="border-radius: 50px;">Não</button>
+                                <a href="{% url 'deletar_usuario' usuario.id %}" class="btn btn-white border border-dark px-4" style="border-radius: 50px;">Sim</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endfor %}

@@ -30,3 +30,8 @@ def editar_usuario(request, id=None):
         return redirect("listar_usuarios")
 
     return render(request, "recursos_humanos/editar_usuario.html", {"instance": instance, "form": form})
+
+def deletar_usuario(request, id=None):
+    instance = get_object_or_404(Usuario, id=id)
+    instance.delete()
+    return redirect("listar_usuarios")
