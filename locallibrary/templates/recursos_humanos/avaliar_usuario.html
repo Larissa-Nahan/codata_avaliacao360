@@ -9,26 +9,13 @@
         style="background-color: #d9d9d9; border-radius: 25px; max-width: 200px;">Critérios Meritórios</p>
     <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
         <div class="pl-5">
+            {% for merito in meritos %}
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="merito-1">
-                <label class="custom-control-label" for="merito-1">Elaborar
-                    planejamento anual do setor;</label>
+                <input type="checkbox" class="custom-control-input" id="merito-{{ forloop.counter }}">
+                <label class="custom-control-label" for="merito-{{ forloop.counter }}">{{ merito }}</label>
             </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="merito-2">
-                <label class="custom-control-label" for="merito-2">Submeter-se aos exames médicos
-                    previstos;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="merito-3">
-                <label class="custom-control-label" for="merito-3">Assiduidade e frequência acima de
-                    95%;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="merito-4">
-                <label class="custom-control-label" for="merito-4">Cumprimento das tarefas designadas
-                    dentro do prazo.</label>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </fieldset>
@@ -37,40 +24,12 @@
         style="background-color: #d9d9d9; border-radius: 25px; max-width: 250px;">Critérios Demeritórios</p>
     <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
         <div class="pl-5">
+            {% for demerito in demeritos %}
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-1">
-                <label class="custom-control-label" for="demerito-1">Praticar ato de indisciplina;</label>
+                <input type="checkbox" class="custom-control-input" id="demerito-{{ forloop.counter }}">
+                <label class="custom-control-label" for="demerito-{{ forloop.counter }}">{{ demerito }}</label>
             </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-2">
-                <label class="custom-control-label" for="demerito-2">Praticar ofensas física e
-                    moral;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-3">
-                <label class="custom-control-label" for="demerito-3">Apresentar-se para trabalhar
-                    alcoolizado;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-4">
-                <label class="custom-control-label" for="demerito-4">Deixar de cumprir obrigações
-                    contratuais;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-5">
-                <label class="custom-control-label" for="demerito-5">Advertência (verbal ou
-                    escrita);</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-6">
-                <label class="custom-control-label" for="demerito-6">Faltas injustificadas à treinamento e
-                    eventos de interesse;</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="demerito-7">
-                <label class="custom-control-label" for="demerito-7">Descumprir políticas e regras da
-                    empresa.</label>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </fieldset>

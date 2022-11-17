@@ -27,9 +27,15 @@ class FatorDesempenhoMerito(models.Model):
         verbose_name = "Fator de Desempenho Meritório"
         verbose_name_plural = "Fator de Desempenho Meritórios"
 
+    def __str__(self) -> str:
+        return self.fator
+
 class FatorDesempenhoDemerito(models.Model):
     fator = models.TextField()
 
     class Meta:
         verbose_name = "Fator de Desempenho Demeritório"
         verbose_name_plural = "Fator de Desempenho Demeritórios"
+
+    def __str__(self) -> str:
+        return self.fator
