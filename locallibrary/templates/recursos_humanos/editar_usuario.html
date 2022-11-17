@@ -6,11 +6,12 @@
     <form action="" method="post" class="">
         {% csrf_token %}
         {{ form.non_field_errors }}
-        
+
         <div class="row d-flex justify-content-around mx-3 my-2">
             <div class="row m-0 fieldWrapper">
                 {{ form.efetivo.errors }}
-                <label class="mb-0 font-weight-bold" for="{{ form.efetivo.efetivo }}">Servidor efetivo da Codata:</label>
+                <label class="mb-0 font-weight-bold" for="{{ form.efetivo.efetivo }}">Servidor efetivo da
+                    Codata:</label>
                 <div>{{ form.efetivo }}</div>
             </div>
             <div class="row m-0 fieldWrapper">
@@ -56,13 +57,17 @@
                     <div>{{ form.nivel }}</div>
                 </div>
             </div>
-            <input class="border-0 px-4 py-1 mx-3 mb-5" style="background-color: #FFFCFC; border-radius: 15px;"
-                type="submit" value="Salvar">
+            <div class="mt-2 mb-5">
+                <a href="{% url 'listar_usuarios' %}" class="btn border-0 px-4 py-1"
+                    style="background-color: #FFFCFC; border-radius: 15px; color: black;" id="botao-editar">Cancelar</a>
+                <input class="border-0 px-4 py-1 ml-2" style="background-color: #FFFCFC; border-radius: 15px;" type="submit"
+                    value="Salvar">
+            </div>
         </div>
     </form>
 </div>
 
 <script>
-    
+
 </script>
 {% endblock %}
