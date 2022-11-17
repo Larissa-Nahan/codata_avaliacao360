@@ -1,53 +1,42 @@
 {% extends '../base_home.html' %}
 
-{% block 'navbar' %}
-<div class="list-group-flush text-center">
-    <div id="accordion">
-
-        <div class="card">
-            <div class="card-header p-0" id="headingOne">
-            <h5 class="mb-0">
-                <a href="{% url 'home' %}" class="btn text-dark m-0 w-100">Home</a>
-            </h5>
+{% block 'menu-lateral' %}
+<div class="card">
+    <div class="card-header p-0" id="headingTwo">
+        <h5 class="mb-0">
+            <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Usuário
+            </button>
+        </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body p-0 text-left">
+            <a href="{% url 'listar_usuarios' %}"
+                class="list-group-item list-group-item-action text-dark m-0">-Listar</a>
+        </div>
+        <div class="card-body p-0 text-left">
+            <a href="{% url 'cadastrar_usuario' %}"
+                class="list-group-item list-group-item-action text-dark m-0">-Cadastrar</a>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-header p-0" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    Usuário
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body p-0 text-left">
-                <a href="{% url 'listar_usuarios' %}" class="list-group-item list-group-item-action text-dark m-0">-Listar</a>
-            </div>
-            <div class="card-body p-0 text-left">
-                <a href="{% url 'cadastrar_usuario' %}" class="list-group-item list-group-item-action text-dark m-0">-Cadastrar</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header p-0" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="false" aria-controls="collapseThree">
-                    Avaliação de Desempenho
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body p-0 text-left">
-                <a href="#" class="list-group-item list-group-item-action text-dark m-0">-Fator Avaliação</a>
-                <a href="{% url 'avaliacao_desempenho' %}" class="list-group-item list-group-item-action text-dark m-0">-Fator Desempenho</a>
-            </div>
-        </div>
-    </div>
-
 </div>
+
+<div class="card">
+    <div class="card-header p-0" id="headingThree">
+        <h5 class="mb-0">
+            <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                Avaliação de Desempenho
+            </button>
+        </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body p-0 text-left">
+            <a href="#" class="list-group-item list-group-item-action text-dark m-0">-Fator Avaliação</a>
+            <a href="{% url 'avaliacao_desempenho' %}"
+                class="list-group-item list-group-item-action text-dark m-0">-Fator Desempenho</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

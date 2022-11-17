@@ -33,7 +33,24 @@
                 <br />
                 <br />
                 <br />
-                {% block 'navbar' %} {% endblock %}
+
+                <div class="list-group-flush text-center">
+                    <div id="accordion">
+
+                        <div class="card">
+                            <div class="card-header p-0" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a href="{% url 'home' %}" class="btn text-dark m-0 w-100">Home</a>
+                                </h5>
+                            </div>
+                        </div>
+
+                        {% block 'menu-lateral' %}                 
+                        {% endblock %}
+
+                    </div>
+                </div>
+
             </div>
 
             {% block 'conteudo' %} {% endblock %}
