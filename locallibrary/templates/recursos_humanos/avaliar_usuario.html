@@ -1,0 +1,123 @@
+{% extends './home.html' %}
+
+{% block 'conteudo' %}
+<style>
+    .custom-control-label::before {
+        background: white;
+        border: solid 1px black;
+    }
+
+    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+        background-color: black;
+    }
+</style>
+
+<div class="col m-0 p-0">
+    <h2 class="border-bottom border-dark pl-3 w-75">Avaliação de Desempenho - Fator Desempenho</h2>
+    <div class="mx-3 my-2">
+        <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
+        {% if usuario.efetivo %}
+        <input type="checkbox" checked onclick="return false;">
+        {% else %}
+        <input type="checkbox" onclick="return false;">
+        {% endif %}
+        <div class="row">
+            <div class="col-3 d-flex flex-column pr-0">
+                <label class="mb-0">Diretoria*</label>
+                <input type="text" readonly value="{{ usuario.gerencia }}">
+            </div>
+            <div class="col-2 d-flex flex-column">
+                <label class="mb-0">Função*</label>
+                <input type="text" readonly value="{{ usuario.funcao }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 d-flex flex-column pr-0">
+                <label class="mb-0">Nome*</label>
+                <input type="text" readonly value="{{ usuario.nome }}">
+            </div>
+            <div class="col-2 d-flex flex-column">
+                <label class="mb-0">CPF*</label>
+                <input type="text" readonly value="{{ usuario.cpf }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="border border-dark mb-2">
+        <div class="col">
+            <fieldset class="form-group">
+                <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center"
+                    style="background-color: #d9d9d9; border-radius: 25px; max-width: 200px;">Critérios Meritórios</p>
+                <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
+                    <div class="pl-5">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="merito-1">
+                            <label class="custom-control-label" for="merito-1">Elaborar
+                                planejamento anual do setor;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="merito-2">
+                            <label class="custom-control-label" for="merito-2">Submeter-se aos exames médicos
+                                previstos;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="merito-3">
+                            <label class="custom-control-label" for="merito-3">Assiduidade e frequência acima de
+                                95%;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="merito-4">
+                            <label class="custom-control-label" for="merito-4">Cumprimento das tarefas designadas
+                                dentro do prazo.</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center"
+                    style="background-color: #d9d9d9; border-radius: 25px; max-width: 250px;">Critérios Demeritórios</p>
+                <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
+                    <div class="pl-5">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-1">
+                            <label class="custom-control-label" for="demerito-1">Praticar ato de indisciplina;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-2">
+                            <label class="custom-control-label" for="demerito-2">Praticar ofensas física e moral;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-3">
+                            <label class="custom-control-label" for="demerito-3">Apresentar-se para trabalhar alcoolizado;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-4">
+                            <label class="custom-control-label" for="demerito-4">Deixar de cumprir obrigações contratuais;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-5">
+                            <label class="custom-control-label" for="demerito-5">Advertência (verbal ou escrita);</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-6">
+                            <label class="custom-control-label" for="demerito-6">Faltas injustificadas à treinamento e eventos de interesse;</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="demerito-7">
+                            <label class="custom-control-label" for="demerito-7">Descumprir políticas e regras da empresa.</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-end mr-5 mb-2">
+                <button type="button" class="btn text-dark font-weight-bold pl-4 pr-4"
+                    style="background-color: #D9D9D9;" data-toggle="modal" data-target="#exampleModal">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+    {% endblock %}

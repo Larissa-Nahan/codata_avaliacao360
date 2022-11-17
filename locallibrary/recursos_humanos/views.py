@@ -41,3 +41,8 @@ def avaliacao_desempenho(request):
     usuarios = Usuario.objects.all()
 
     return render(request, "recursos_humanos/avaliacao_desempenho.html", {'usuarios': usuarios})
+
+def avaliar_usuario(request, id=None):
+    usuario = Usuario.objects.get(id = id)  
+
+    return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario})
