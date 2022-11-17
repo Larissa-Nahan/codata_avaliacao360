@@ -31,8 +31,8 @@ def validar_login(request):
                 #     return redirect(f'/chefe/home')
                 # elif usuario[0].funcao == 'gerente':
                 #     return redirect(f'/gerente/home')
-                # elif usuario[0].funcao == 'empregados':
-                #     return redirect(f'/empregado/home')                
+                elif usuario[0].funcao == 'empregado':
+                    return redirect(f'/empregados/')                
             else:
                 # usuario existe mas senha errada
                 return redirect(f'/?status=1')
