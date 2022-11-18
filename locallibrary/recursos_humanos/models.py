@@ -1,57 +1,43 @@
 from email.policy import default
 from django.db import models   
 from datetime import datetime 
-    
+
+class Classe(models.Model):
+    classe = models.CharField(max_length=20, blank=True)
+
+    def __str__(self) -> str:
+        return self.classe
+
+class Nivel(models.Model):
+    nivel = models.CharField(max_length=20, blank=True)
+
+    def __str__(self) -> str:
+        return self.nivel
+
+class Gerencia(models.Model):
+    gerencia = models.CharField(max_length=20, blank=True)
+
+    def __str__(self) -> str:
+        return self.gerencia
+
+class Diretoria(models.Model):
+    diretoria = models.CharField(max_length=20, blank=True)
+
+    def __str__(self) -> str:
+        return self.diretoria
+
+class Grupo(models.Model):
+    grupo = models.CharField(max_length=20, blank=True)
+
+    def __str__(self) -> str:
+        return self.grupo
+
 class Usuario(models.Model):
     FUNCAO = (
         ('chefe', "Chefe"),
         ('gerente', "Gerente"),
         ('empregado', "Empregado"),
         ('recursos_humanos', "Recursos Humanos"),
-    )
-
-    CLASSE = (
-        ('a', "A"),
-        ('b', "B"),
-        ('c', "C"),
-        ('d', "D"),
-    )
-
-    NIVEL = (
-        ('i', "I"),
-        ('ii', "II"),
-        ('iii', "III"),
-        ('iv', "IV"),
-        ('v', "V"),
-        ('vi', "VI"),
-        ('vii', "VII"),
-        ('viii', "VIII"),
-        ('ix', "IX"),
-        ('x', "X"),
-        ('xi', "XI"),
-        ('xii', "XII"),
-        ('xiii', "XIII"),
-        ('xiv', "XIV"),
-        ('xv', "XV"),
-    )
-
-    DIRETORIA = (
-        ('diretoria1', "Diretoria 1"),
-        ('diretoria2', "Diretoria 2"),
-        ('diretoria3', "Diretoria 3"),
-        ('diretoria4', "Diretoria 4"),
-    )
-
-    GERENCIA = (
-        ('gerencia1', "Gerencia 1"),
-        ('gerencia2', "Gerencia 2"),
-        ('gerencia3', "Gerencia 3"),
-        ('gerencia4', "Gerencia 4"),
-    )
-
-    GRUPO = (
-        ('grupo1', "Grupo 1"),
-        ('grupo2', "Grupo 2"),
     )
 
     nome = models.CharField(max_length=100, blank=False, null=False)
@@ -66,12 +52,13 @@ class Usuario(models.Model):
     
     setor = models.CharField(max_length=50)
     cargo = models.CharField(max_length=50)
-    grupo = models.CharField(max_length=40, choices=GRUPO)
     funcao = models.CharField(max_length=20, choices=FUNCAO)
-    classe = models.CharField(max_length=16, choices=CLASSE)
-    gerencia = models.CharField(max_length=50, choices=GERENCIA)
-    diretoria = models.CharField(max_length=40, choices=DIRETORIA)
-    nivel = models.CharField(max_length=5, choices=NIVEL, blank=True, null=True)
+    classe = models.ForeignKey(Classe, blank=True, null=True, on_delete=models.SET_NULL)
+    nivel = models.ForeignKey(Nivel, blank=True, null=True, on_delete=models.SET_NULL)
+    gerencia = models.ForeignKey(Gerencia, blank=True, null=True, on_delete=models.SET_NULL)
+    diretoria = models.ForeignKey(Diretoria, blank=True, null=True, on_delete=models.SET_NULL)
+    grupo = models.ForeignKey(Grupo, blank=True, null=True, on_delete=models.SET_NULL)
+    
     efetivo = models.BooleanField()
     inativo = models.BooleanField()
 
