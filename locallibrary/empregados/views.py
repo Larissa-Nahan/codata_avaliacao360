@@ -6,4 +6,6 @@ def home(request):
     return render(request, "home_usuarios.html")
 
 def auto(request):
-    return render(request, 'empregados/auto.html')
+    usuario = Usuario.objects.get(id = request.session['usuario'])
+
+    return render(request, 'empregados/auto.html', {"usuario": usuario})

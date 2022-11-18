@@ -73,7 +73,7 @@ class Usuario(models.Model):
     diretoria = models.CharField(max_length=40, choices=DIRETORIA)
     nivel = models.CharField(max_length=5, choices=NIVEL, blank=True, null=True)
     efetivo = models.BooleanField()
-    inativo = models.BooleanField(default="False")
+    inativo = models.BooleanField()
 
     class Meta:
         verbose_name = "Usuário"
