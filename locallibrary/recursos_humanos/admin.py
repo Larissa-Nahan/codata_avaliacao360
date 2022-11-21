@@ -1,10 +1,14 @@
 from django.contrib import admin
 from .models import Usuario, Classe, Nivel, Gerencia, Diretoria, Grupo
-from .forms import UsuarioForm
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ["nome", "funcao", "diretoria"]
-    form = UsuarioForm
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "meritos":
+            kwargs["queryset"] = Usuario.objects.filter(nome=request.user)
+        return super(UsuarioAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+
 admin.site.register(Usuario, UsuarioAdmin)
 
 class ClasseAdmin(admin.ModelAdmin):

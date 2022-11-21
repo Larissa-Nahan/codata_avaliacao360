@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CadastrarUsuarioForm, EditarUsuarioForm
+from .forms import CadastrarUsuarioForm, EditarUsuarioForm, AvaliacaoForm
 from .models import Usuario
 from avaliacao.models import FatorDesempenhoDemerito, FatorDesempenhoMerito
 from django.shortcuts import get_object_or_404
@@ -45,7 +45,7 @@ def avaliacao_desempenho(request):
 
 def avaliar_usuario(request, id=None):
     usuario = Usuario.objects.get(id = id) 
-    demeritos = FatorDesempenhoDemerito.objects.all() 
-    meritos = FatorDesempenhoMerito.objects.all() 
-
-    return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario, "demeritos": demeritos, "meritos": meritos})
+    form = AvaliacaoForm(request.POST or None)
+    
+   
+    return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario, "form": form})

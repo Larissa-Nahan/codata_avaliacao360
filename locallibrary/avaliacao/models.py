@@ -20,18 +20,18 @@ class AvaliacaoDesempenho(models.Model):
     def __str__(self) -> str:
         return f"Critério {self.categoria_avaliacao}"
 
+
 class FatorDesempenhoMerito(models.Model):
-    fator = models.TextField()
+    fator = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Fator de Desempenho Meritório"
-        verbose_name_plural = "Fator de Desempenho Meritórios"
 
     def __str__(self) -> str:
         return self.fator
 
 class FatorDesempenhoDemerito(models.Model):
-    fator = models.TextField()
+    fator = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Fator de Desempenho Demeritório"

@@ -1,6 +1,7 @@
 from email.policy import default
 from django.db import models   
 from datetime import datetime 
+from avaliacao.models import FatorDesempenhoMerito, FatorDesempenhoDemerito
 
 class Classe(models.Model):
     classe = models.CharField(max_length=20, blank=True)
@@ -58,9 +59,13 @@ class Usuario(models.Model):
     gerencia = models.ForeignKey(Gerencia, blank=True, null=True, on_delete=models.SET_NULL)
     diretoria = models.ForeignKey(Diretoria, blank=True, null=True, on_delete=models.SET_NULL)
     grupo = models.ForeignKey(Grupo, blank=True, null=True, on_delete=models.SET_NULL)
-    
-    efetivo = models.BooleanField()
-    inativo = models.BooleanField()
+
+    efetivo = models.BooleanField(default=False)
+    inativo = models.BooleanField(default=False)
+
+    meritos = models.ManyToManyField(FatorDesempenhoMerito,blank=True)
+    demeritos = models.ManyToManyField(FatorDesempenhoDemerito,blank=True)
+
 
     class Meta:
         verbose_name = "Usuário"
