@@ -47,5 +47,11 @@ def avaliar_usuario(request, id=None):
     usuario = Usuario.objects.get(id = id) 
     form = AvaliacaoForm(request.POST or None)
     
-   
+    if form.is_valid():
+        print("============================================================================form valido")
+
+        form.add()
+        return redirect("recursos_humanos/avaliacao_desempenho.html")
+    print("============================================================================form invalido")
+
     return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario, "form": form})

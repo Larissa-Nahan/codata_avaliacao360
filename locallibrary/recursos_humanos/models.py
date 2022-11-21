@@ -63,8 +63,8 @@ class Usuario(models.Model):
     efetivo = models.BooleanField(default=False)
     inativo = models.BooleanField(default=False)
 
-    meritos = models.ManyToManyField(FatorDesempenhoMerito,blank=True)
-    demeritos = models.ManyToManyField(FatorDesempenhoDemerito,blank=True)
+    meritos = models.ManyToManyField(FatorDesempenhoMerito, blank=True)
+    demeritos = models.ManyToManyField(FatorDesempenhoDemerito, blank=True)
 
 
     class Meta:
