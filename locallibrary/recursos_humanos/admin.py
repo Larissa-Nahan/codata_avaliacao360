@@ -4,8 +4,6 @@ from .models import Usuario, Classe, Nivel, Gerencia, Diretoria, Grupo
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ["nome", "funcao", "diretoria"]
     filter_horizontal = ('meritos', 'demeritos')
-
-
 admin.site.register(Usuario, UsuarioAdmin)
 
 class ClasseAdmin(admin.ModelAdmin):

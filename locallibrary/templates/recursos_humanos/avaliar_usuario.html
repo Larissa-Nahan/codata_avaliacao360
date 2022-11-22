@@ -16,7 +16,7 @@
     <h2 class="border-bottom border-dark pl-3 w-75">Avaliação de Desempenho - Fator Desempenho</h2>
     <div class="mx-3 my-2">
         <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
-        {% if usuario.efetivo %}
+        {% if instance.efetivo %}
         <input type="checkbox" checked onclick="return false;">
         {% else %}
         <input type="checkbox" onclick="return false;">
@@ -24,21 +24,21 @@
         <div class="row">
             <div class="col-3 d-flex flex-column pr-0">
                 <label class="mb-0">Diretoria*</label>
-                <input type="text" readonly value="{{ usuario.gerencia }}">
+                <input type="text" readonly value="{{ instance.gerencia }}">
             </div>
             <div class="col-2 d-flex flex-column">
                 <label class="mb-0">Função*</label>
-                <input type="text" readonly value="{{ usuario.funcao }}">
+                <input type="text" readonly value="{{ instance.funcao }}">
             </div>
         </div>
         <div class="row">
             <div class="col-4 d-flex flex-column pr-0">
                 <label class="mb-0">Nome*</label>
-                <input type="text" readonly value="{{ usuario.nome }}">
+                <input type="text" readonly value="{{ instance.nome }}">
             </div>
             <div class="col-2 d-flex flex-column">
                 <label class="mb-0">CPF*</label>
-                <input type="text" readonly value="{{ usuario.cpf }}">
+                <input type="text" readonly value="{{ instance.cpf }}">
             </div>
         </div>
     </div>

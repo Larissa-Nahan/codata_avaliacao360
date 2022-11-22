@@ -30,4 +30,4 @@ class AvaliacaoForm(forms.ModelForm):
     
     class Meta:
         model = Usuario
-        fields = "__all__"
+        fields = ['meritos', 'demeritos']
