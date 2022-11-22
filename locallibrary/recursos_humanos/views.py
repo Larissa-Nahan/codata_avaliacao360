@@ -44,14 +44,13 @@ def avaliacao_desempenho(request):
     return render(request, "recursos_humanos/avaliacao_desempenho.html", {'usuarios': usuarios})
 
 def avaliar_usuario(request, id=None):
-    usuario = Usuario.objects.get(id = id) 
-    form = AvaliacaoForm(request.POST or None)
-    
+    instance = get_object_or_404(Usuario, id=id)
+    usuario = instance
+    form = AvaliacaoForm(request.POST or None, instance=usuario)
+
     if form.is_valid():
-        print("============================================================================form valido")
-
-        form.add()
+        instance = form.save(commit=False)
+        instance.save()
         return redirect("recursos_humanos/avaliacao_desempenho.html")
-    print("============================================================================form invalido")
-
-    return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario, "form": form})
+    
+    return render(request, "recursos_humanos/avaliar_usuario.html", {"usuario": usuario, "instance": instance, "form": form})
