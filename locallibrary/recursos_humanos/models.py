@@ -3,42 +3,51 @@ from django.db import models
 from datetime import datetime 
 from avaliacao.models import FatorDesempenhoMerito, FatorDesempenhoDemerito
 
-class Classe(models.Model):
-    classe = models.CharField(max_length=20, blank=True)
-
-    def __str__(self) -> str:
-        return self.classe
-
-class Nivel(models.Model):
-    nivel = models.CharField(max_length=20, blank=True)
-
-    def __str__(self) -> str:
-        return self.nivel
-
-class Gerencia(models.Model):
-    gerencia = models.CharField(max_length=20, blank=True)
-
-    def __str__(self) -> str:
-        return self.gerencia
-
-class Diretoria(models.Model):
-    diretoria = models.CharField(max_length=20, blank=True)
-
-    def __str__(self) -> str:
-        return self.diretoria
-
-class Grupo(models.Model):
-    grupo = models.CharField(max_length=20, blank=True)
-
-    def __str__(self) -> str:
-        return self.grupo
-
 class Usuario(models.Model):
     FUNCAO = (
-        ('chefe', "Chefe"),
+        ('presidente', "Presidente"),
+        ('diretos', "Diretor"),
         ('gerente', "Gerente"),
-        ('empregado', "Empregado"),
+        ('chefe', "Chefe"),
+        ('colaborador', "Colaborador"),
+        ('cedido', "Cedido a outro orgão"),
         ('recursos_humanos', "Recursos Humanos"),
+    )
+
+    CLASSE = (
+        ('classe1', "Classe 1"),
+        ('classe2', "Classe 2"),
+        ('classe3', "Classe 3"),
+    )
+
+    NIVEL = (
+        ('i', "I"),
+        ('ii', "II"),
+        ('iii', "III"),
+        ('iv', "IV"),
+        ('v', "V"),
+        ('vi', "VI"),
+        ('vii', "VII"),
+        ('viii', "VIII"),
+        ('ix', "IX"),
+        ('x', "X"),
+        ('xi', "XI"),
+        ('xii', "XII"),
+    )
+
+    GERENCIA = (
+        ('adminstrativa', "Adminstrativa"),
+        ('financeira', "Financeira"),
+        ('negocios_prospeccao', "Negócios e Prospecção"),
+        ('treinamento', "Treinamento"),
+        ('recursos_humanos', "Recursos Humanos"),
+    )
+
+    DIRETORIA = (
+        ('diraf', "Diretoria Administrativa Financeira"),
+        ('dides', "Diretoria de Desenvolvimento de Sistemas"),
+        ('dirad', "Diretoria de Alto Desempenho"),
+        ('ditec', "Diretoria de Tecnologia da Informação e Comunicação"),
     )
 
     nome = models.CharField(max_length=100, blank=False, null=False)
@@ -54,11 +63,10 @@ class Usuario(models.Model):
     setor = models.CharField(max_length=50)
     cargo = models.CharField(max_length=50)
     funcao = models.CharField(max_length=20, choices=FUNCAO)
-    classe = models.ForeignKey(Classe, blank=True, null=True, on_delete=models.SET_NULL)
-    nivel = models.ForeignKey(Nivel, blank=True, null=True, on_delete=models.SET_NULL)
-    gerencia = models.ForeignKey(Gerencia, blank=True, null=True, on_delete=models.SET_NULL)
-    diretoria = models.ForeignKey(Diretoria, blank=True, null=True, on_delete=models.SET_NULL)
-    grupo = models.ForeignKey(Grupo, blank=True, null=True, on_delete=models.SET_NULL)
+    classe = models.CharField(max_length=20, choices=CLASSE)
+    nivel = models.CharField(max_length=5, choices=NIVEL)
+    gerencia = models.CharField(max_length=20, choices=GERENCIA)
+    diretoria = models.CharField(max_length=20, choices=DIRETORIA)
 
     efetivo = models.BooleanField(default=False)
     inativo = models.BooleanField(default=False)

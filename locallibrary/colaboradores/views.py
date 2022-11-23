@@ -8,4 +8,4 @@ def home(request):
 def auto(request):
     usuario = Usuario.objects.get(id = request.session['usuario'])
 
-    return render(request, 'empregados/auto.html', {"usuario": usuario})
+    return render(request, 'colaboradores/auto.html', {"usuario": usuario})
