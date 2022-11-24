@@ -11,8 +11,4 @@ def auto(request):
     instance = Usuario.objects.get(id = request.session['usuario'])
     avaliacoes = AvaliacaoDesempenho.objects.all()
 
-<<<<<<< HEAD:locallibrary/empregados/views.py
-    return render(request, "empregados/auto.html", {"instance": instance, "avaliacoes": avaliacoes})
-=======
-    return render(request, 'colaboradores/auto.html', {"usuario": usuario})
->>>>>>> refs/remotes/origin/v2:locallibrary/colaboradores/views.py
+    return render(request, 'colaboradores/auto.html', {"usuario": usuario, "avaliacoes": avaliacoes})
