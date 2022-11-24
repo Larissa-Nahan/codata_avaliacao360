@@ -48,7 +48,7 @@
     </div>
 
     <div class="border border-dark m-2">
-        <div class="col">
+        <div class="col" style="height: 550px; overflow-y: scroll;">
             <form>
                 <small class="d-flex justify-content-end mr-4">Legenda: Ótimo (10,0), Bom (8,5), Regular (7,0) e
                     Insuficiente
@@ -58,7 +58,7 @@
                     {% for avaliacao in avaliacoes %}
                     <fieldset class="form-group">
                         <p class="ml-5 mb-0 mt-2 mr-auto py-2 pl-2 pr-4 font-weight-bold text-center"
-                            style="background-color: #d9d9d9; border-radius: 25px; max-width: 300px;">Critério
+                            style="background-color: #d9d9d9; border-radius: 25px; max-width: 300px;">{{ forloop.counter}} - Critério de
                             {{avaliacao.categoria_avaliacao}}</p>
                         <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
                             <legend class="col-form-label ml-4 font-weight-bold">Grau de conhecimento para realização de

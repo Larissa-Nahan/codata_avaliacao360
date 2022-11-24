@@ -11,4 +11,4 @@ def auto(request):
     instance = Usuario.objects.get(id = request.session['usuario'])
     avaliacoes = AvaliacaoDesempenho.objects.all()
 
-    return render(request, 'colaboradores/auto.html', {"usuario": usuario, "avaliacoes": avaliacoes})
+    return render(request, 'colaboradores/auto.html', {"instance": instance, "avaliacoes": avaliacoes})
