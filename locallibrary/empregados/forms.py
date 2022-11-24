@@ -1,11 +1,7 @@
-from django.forms import ModelForm, TextInput, PasswordInput
+from django import forms
+from django.forms import ModelForm
 from recursos_humanos.models import Usuario
+from avaliacao.models import AvaliacaoDesempenho
 
-class Avaliacao(ModelForm):
-    class Meta:
-        model = Usuario
-        fields = ['efetivo', 'diretoria', 'gerencia', 'funcao', 'nome', 'cpf', 'nivel']
-        widgets = {
-            'cpf' : TextInput(attrs={'placeholder': 'CPF Usuario'}),
-            'senha' : PasswordInput(attrs={'placeholder': 'Senha', 'data-toggle': 'password'}),
-        }
+
+        

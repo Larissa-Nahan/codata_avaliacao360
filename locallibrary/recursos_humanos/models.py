@@ -1,7 +1,7 @@
 from email.policy import default
 from django.db import models   
 from datetime import datetime 
-from avaliacao.models import FatorDesempenhoMerito, FatorDesempenhoDemerito
+from avaliacao.models import FatorDesempenhoMerito, FatorDesempenhoDemerito, AvaliacaoDesempenho
 
 class Classe(models.Model):
     classe = models.CharField(max_length=20, blank=True)
@@ -66,13 +66,11 @@ class Usuario(models.Model):
     meritos = models.ManyToManyField(FatorDesempenhoMerito, blank=True)
     demeritos = models.ManyToManyField(FatorDesempenhoDemerito, blank=True)
 
+    avaliacoes = models.ManyToManyField(AvaliacaoDesempenho, blank=True)
+
 
     class Meta:
         verbose_name = "Usuário"
 
     def __str__(self) -> str:
         return self.nome
-
-class Avaliacao(models.Model):
-    nome = models.ForeignKey(Usuario, related_name='+', on_delete=models.DO_NOTHING)
-    cpf = models.ForeignKey(Usuario, related_name='+', on_delete=models.DO_NOTHING)

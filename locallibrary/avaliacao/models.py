@@ -18,7 +18,7 @@ class AvaliacaoDesempenho(models.Model):
         verbose_name_plural = "Avaliações de Desempenho"
 
     def __str__(self) -> str:
-        return f"Critério {self.categoria_avaliacao}"
+        return f"Critério de {self.categoria_avaliacao}"
 
 
 class FatorDesempenhoMerito(models.Model):
