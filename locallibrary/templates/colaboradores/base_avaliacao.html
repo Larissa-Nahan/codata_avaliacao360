@@ -1,19 +1,9 @@
 {% extends '../home_usuarios.html' %}
 
 {% block 'conteudo' %}
-<style>
-    .custom-control-label::before {
-        background: white;
-        border: solid 1px black;
-    }
-
-    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-        background-color: black;
-    }
-</style>
 
 <div class="col m-0 p-0">
-    <h2 class="border-bottom border-dark w-75">Formulário de {% block 'avaliado-form' %}{% endblock %}</h2>
+    <h1 class="border-bottom-blue pl-3 w-75 font-weight-bold">Formulário de {% block 'avaliado-form' %}{% endblock %}</h1>
     <div class="mx-3 my-2">
         <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
         {% if instance.efetivo %}

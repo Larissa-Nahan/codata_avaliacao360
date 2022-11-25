@@ -1,89 +1,79 @@
 {% extends '../home_usuarios.html' %}
 
 {% block 'conteudo' %}
-<style>
-    .custom-control-label::before {
-        background: white;
-        border: solid 1px black;
-    }
 
-    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-        background-color: black;
-    }
-</style>
-
-<div class="col m-0 p-0"> 
-    <div class="border border-dark m-2">
-        <div class="col m-0 p-0">
-            <h2 class="border-bottom border-dark pl-3 w-75">Avaliação de Desempenho - Fator Desempenho</h2>
-            <div class="mx-3 my-2">
-                <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
-                {% if instance.efetivo %}
-                <input type="checkbox" checked onclick="return false;">
-                {% else %}
-                <input type="checkbox" onclick="return false;">
-                {% endif %}
-                <div class="row">
-                    <div class="col-3 d-flex flex-column pr-0">
-                        <label class="mb-0">Diretoria*</label>
-                        <input type="text" readonly value="{{ instance.gerencia }}">
-                    </div>
-                    <div class="col-2 d-flex flex-column">
-                        <label class="mb-0">Função*</label>
-                        <input type="text" readonly value="{{ instance.funcao }}">
-                    </div>
+<div class="col m-0 p-0">
+    <div class="col m-0 p-0">
+        <h1 class="border-bottom-blue pl-3 w-75 font-weight-bold">Avaliação do Fator Desempenho</h1>
+        <div class="mx-3 my-2">
+            <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
+            {% if instance.efetivo %}
+            <input type="checkbox" checked onclick="return false;">
+            {% else %}
+            <input type="checkbox" onclick="return false;">
+            {% endif %}
+            <div class="row">
+                <div class="col-3 d-flex flex-column pr-0">
+                    <label class="mb-0">Diretoria*</label>
+                    <input type="text" readonly value="{{ instance.diretoria }}">
                 </div>
-                <div class="row">
-                    <div class="col-4 d-flex flex-column pr-0">
-                        <label class="mb-0">Nome*</label>
-                        <input type="text" readonly value="{{ instance.nome }}">
-                    </div>
-                    <div class="col-2 d-flex flex-column">
-                        <label class="mb-0">CPF*</label>
-                        <input type="text" readonly value="{{ instance.cpf }}">
-                    </div>
+                <div class="col-3 d-flex flex-column pr-0">
+                    <label class="mb-0">Gerência*</label>
+                    <input type="text" readonly value="{{ instance.gerencia }}">
+                </div>
+                <div class="col-2 d-flex flex-column">
+                    <label class="mb-0">Função*</label>
+                    <input type="text" readonly value="{{ instance.funcao }}">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-4 d-flex flex-column pr-0">
+                    <label class="mb-0">Nome*</label>
+                    <input type="text" readonly value="{{ instance.nome }}">
+                </div>
+                <div class="col-2 d-flex flex-column">
+                    <label class="mb-0">CPF*</label>
+                    <input type="text" readonly value="{{ instance.cpf }}">
+                </div>
+            </div>
+        </div>
 
-            <div class="border border-dark m-2">
+        <div class="border border-dark m-2">
 
-                <form action="" method="post" class="">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <fieldset class="form-group">
-                        <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center"
-                            style="background-color: #d9d9d9; border-radius: 25px; max-width: 200px;">Critérios
-                            Meritórios</p>
-                        <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
-                            <div class="pl-5">
-                                {{form.meritos}}
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center"
-                            style="background-color: #d9d9d9; border-radius: 25px; max-width: 250px;">Critérios
-                            Demeritórios</p>
-                        <div class="row mx-1 p-2 text-left" style="background-color: #edebeb; border-radius: 25px">
-                            <div class="pl-5">
-                                {{form.demeritos}}
-                            </div>
-                        </div>
-                    </fieldset>
-
-
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-column mb-2 ml-5">
-                            <small class="mb-0">Anexar Documentos Comprobatórios</small>
-                            <input type="file" class="" id="file">
-                        </div>
-                        <div class="d-flex justify-content-end mr-5 mb-2">
-                            <input class="btn text-dark font-weight-bold pl-4 pr-4" style="background-color: #D9D9D9;"
-                                type="submit" value="Enviar">
+            <form action="" method="post" class="">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <fieldset class="form-group">
+                    <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center dark-grey-bg">Critérios
+                        Meritórios</p>
+                    <div class="row mx-2 p-2 text-left light-grey-bg">
+                        <div class="pl-5">
+                            {{form.meritos}}
                         </div>
                     </div>
-                </form>
-            </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center dark-grey-bg">Critérios
+                        Demeritórios</p>
+                    <div class="row mx-2 p-2 text-left light-grey-bg">
+                        <div class="pl-5">
+                            {{form.demeritos}}
+                        </div>
+                    </div>
+                </fieldset>
+
+
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column mb-2 ml-5">
+                        <small class="mb-0">Anexar Documentos Comprobatórios</small>
+                        <input type="file" class="" id="file">
+                    </div>
+                    <div class="d-flex justify-content-end mr-5 mb-2">
+                        <input class="btn text-dark font-weight-bold pl-4 pr-4" style="background-color: #D9D9D9;"
+                            type="submit" value="Enviar">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 

@@ -1,0 +1,54 @@
+:root {
+    --dark_cerulean: #194b69;
+    --blue_sapphire: #205e7f;
+    --teal_blue: #3d7084;
+    --steel_teal: #568194;
+    --pastel_blue: #a5c0cc;
+}
+
+
+.header-bg {
+    background-color: var(--blue_sapphire);
+}
+
+.menu {
+    border: none;
+}
+
+.btn-menu {
+    color: black;
+    border: none;
+    border-radius: 0%;
+    background-color: white;
+}
+
+.btn-menu:hover {
+    color: white;
+    background: var(--blue_sapphire);
+    background: linear-gradient(90deg, var(--blue_sapphire) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+h1 {
+    color: var(--dark_cerulean);
+}
+
+.border-right-blue {
+    border-right-style: solid;
+    border-right-color: var(--blue_sapphire);
+}
+
+.border-bottom-blue {
+    border-bottom-style: solid;
+    border-bottom-color: var(--blue_sapphire);
+}
+
+.light-grey-bg {
+    background-color: #edebeb;
+    border-radius: 25px;
+}
+
+.dark-grey-bg {
+    background-color: #d9d9d9;
+    border-radius: 25px;
+    max-width: 250px;
+}

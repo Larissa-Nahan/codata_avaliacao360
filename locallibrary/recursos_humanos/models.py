@@ -39,6 +39,7 @@ class Usuario(models.Model):
     )
 
     NIVEL = (
+        ('', '----'),
         ('i', "I"),
         ('ii', "II"),
         ('iii', "III"),

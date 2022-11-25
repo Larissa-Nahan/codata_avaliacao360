@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'avaliacao360/style.css' %}">
 
     <title>Avaliação 360°</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -23,27 +24,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light" style="background-color: #e3e0e0">
-        <img src="{% static 'logo-fundo-claro.png' %}" height="56px" class="d-inline-block align-top" alt="">
+    <nav class="navbar navbar-light header-bg">
+        <img src="{% static 'logo-fundo-escuro.png' %}" height="56px" class="d-inline-block align-top" alt="">
     </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 p-0 border-right border-dark">
-                <br />
-                <br />
-                <br />
+            <div class="col-md-2 p-0 border-right-blue">
 
-                <div class="list-group-flush text-center">
+                <div class="list-group-flush mt-5 text-center">
                     <div id="accordion">
-
-                        <div class="card">
-                            <div class="card-header p-0" id="headingOne">
-                                <h5 class="mb-0">
-                                    <a href="{% url 'home' %}" class="btn text-dark m-0 w-100">Home</a>
-                                </h5>
-                            </div>
-                        </div>
 
                         {% block 'menu-lateral' %}                 
                         {% endblock %}
