@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import CadastrarUsuarioForm, EditarUsuarioForm, AvaliacaoForm
-from .models import Usuario
+from .models import Usuario, Gerencia, Diretoria
 from avaliacao.models import FatorDesempenhoDemerito, FatorDesempenhoMerito
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+import json
 
 def home(request):
     return render(request, "recursos_humanos/home.html")
@@ -20,6 +22,13 @@ def cadastrar_usuario(request):
         return redirect("listar_usuarios")
     
     return render(request, "recursos_humanos/cadastrar_usuario.html", {'form': form})
+
+def gerencias(request):
+    data = json.loads(request.body)
+    id_diretoria = data["id"]
+    gerencias = Gerencia.objects.filter(diretoria__id=id_diretoria)
+
+    return JsonResponse(list(gerencias.values("id", "gerencia")), safe=False)
 
 def editar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)

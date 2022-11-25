@@ -3,6 +3,24 @@ from django.db import models
 from datetime import datetime 
 from avaliacao.models import FatorDesempenhoMerito, FatorDesempenhoDemerito, AvaliacaoDesempenho
 
+
+class Diretoria(models.Model):
+    diretoria = models.CharField(max_length=100, blank=False, null=False)
+    sigla = models.CharField(max_length=10, blank=False, null=False)
+
+    def __str__(self) -> str:
+        return self.diretoria
+
+class Gerencia(models.Model):
+    gerencia = models.CharField(max_length=100, blank=False, null=False)
+    diretoria = models.ForeignKey(Diretoria, on_delete=models.CASCADE)
+   
+    class Meta:
+        verbose_name = "Gerência"
+
+    def __str__(self) -> str:
+        return self.gerencia
+
 class Usuario(models.Model):
     FUNCAO = (
         ('presidente', "Presidente"),
@@ -35,21 +53,6 @@ class Usuario(models.Model):
         ('xii', "XII"),
     )
 
-    GERENCIA = (
-        ('adminstrativa', "Adminstrativa"),
-        ('financeira', "Financeira"),
-        ('negocios_prospeccao', "Negócios e Prospecção"),
-        ('treinamento', "Treinamento"),
-        ('recursos_humanos', "Recursos Humanos"),
-    )
-
-    DIRETORIA = (
-        ('diraf', "Diretoria Administrativa Financeira"),
-        ('dides', "Diretoria de Desenvolvimento de Sistemas"),
-        ('dirad', "Diretoria de Alto Desempenho"),
-        ('ditec', "Diretoria de Tecnologia da Informação e Comunicação"),
-    )
-
     nome = models.CharField(max_length=100, blank=False, null=False)
     senha = models.CharField(max_length=20, blank=False, null=False)
     email = models.EmailField(blank=False, null=False)
@@ -65,8 +68,9 @@ class Usuario(models.Model):
     funcao = models.CharField(max_length=20, choices=FUNCAO)
     classe = models.CharField(max_length=20, choices=CLASSE)
     nivel = models.CharField(max_length=5, choices=NIVEL)
-    gerencia = models.CharField(max_length=20, choices=GERENCIA)
-    diretoria = models.CharField(max_length=20, choices=DIRETORIA)
+    
+    gerencia = models.ForeignKey('Gerencia', on_delete=models.CASCADE)
+    diretoria = models.ForeignKey('Diretoria', on_delete=models.CASCADE)
 
     efetivo = models.BooleanField(default=False)
     inativo = models.BooleanField(default=False)
