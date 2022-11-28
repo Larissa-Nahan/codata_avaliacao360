@@ -1,4 +1,5 @@
 {% extends 'base_home.html' %}
+{% load static %}
 
 {% block 'menu-lateral' %}
 <div class="card menu ">
@@ -11,24 +12,29 @@
 <div class="card menu">
     <div class="card-header p-0" id="headingTwo">
         <h5 class="mb-0">
-            <button class="btn collapsed btn-menu text-left w-100" data-toggle="collapse"
-                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="btn collapsed btn-menu text-left w-100" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
                 Avaliação
             </button>
         </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body p-0 text-left">
-            <a href="{% url 'auto' %}" class="list-group-item list-group-item-action text-dark m-0">Auto Avaliação</a>
+            <a href="{% url 'auto' %}" class="list-group-item list-group-item-action btn-menu m-0 pl-5 py-1">Auto
+                Avaliação</a>
         </div>
         <div class="card-body p-0 text-left">
-            <a href="#" class="list-group-item list-group-item-action text-dark m-0">Por
+            <a href="#" class="list-group-item list-group-item-action btn-menu m-0 pl-5 py-1">Por
                 Pares</a>
         </div>
         <div class="card-body p-0 text-left">
-            <a href="#" class="list-group-item list-group-item-action text-dark m-0">Chefes e
+            <a href="#" class="list-group-item list-group-item-action btn-menu m-0 pl-5 py-1">Chefes e
                 Gerentes</a>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block 'conteudo' %}
+    <img src="{% static 'logo-fundo-claro.png' %}" width="50%" class="d-flex align-self-center mx-auto my-5 py-5" alt="">
 {% endblock %}

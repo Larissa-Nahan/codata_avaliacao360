@@ -7,6 +7,10 @@
 }
 
 
+*:focus {
+    outline: none;
+}
+
 .header-bg {
     background-color: var(--blue_sapphire);
 }
@@ -25,7 +29,7 @@
 .btn-menu:hover {
     color: white;
     background: var(--blue_sapphire);
-    background: linear-gradient(90deg, var(--blue_sapphire) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(90deg, var(--blue_sapphire) 0%, var(--pastel_blue) 75%, rgba(255, 255, 255, 1) 100%);
 }
 
 h1 {
