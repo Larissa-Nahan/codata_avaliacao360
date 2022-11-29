@@ -1,0 +1,213 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, b, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Rhodium Libre', serif;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+.header-bg {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  background-color: #205e7f;
+}
+
+.pag {
+  position: absolute;
+  width: 100%;
+  top: 12%;
+  left: 1%;
+}
+
+.menu {
+  border: none;
+}
+
+.menu--lateral {
+  position: relative;
+  top: 40%;
+  left: 0;
+}
+
+.menu--btn {
+  color: black;
+  border: none;
+  border-radius: 0%;
+  background-color: white;
+}
+
+.menu--btn:hover {
+  color: white;
+  background: #205e7f;
+  background: linear-gradient(90deg, #205e7f 0%, #a5c0cc 90%, white 100%);
+}
+
+.border-right-blue {
+  border: 2px solid #205e7f;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  left: 16.5%;
+  height: 100%;
+}
+
+h1 {
+  color: #194b69;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #205e7f;
+  font-size: 2.5em;
+}
+
+.scroll {
+  height: 550px;
+  overflow-y: scroll;
+  scrollbar-color: #205e7f white;
+}
+
+small {
+  font-size: 0.75em;
+}
+
+.aval {
+  border-radius: 25px;
+}
+
+.aval--titulo {
+  color: white;
+  background-color: #194b69;
+  border-radius: 25px;
+  max-width: 300px;
+  font-size: 1.2em;
+}
+
+.aval--bg {
+  border-radius: 25px;
+  border: 2px solid #194b69;
+}
+
+.form-check {
+  accent-color: #568194;
+}
+
+.btn-enviar {
+  color: white;
+  background-color: #194b69;
+  border-radius: 15px;
+}
+
+/* toggle tamanho/posicao */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  /* escondendo checkbox */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  /* bg do toggle selecionado */
+  /* animacao do toggle */
+}
+
+.switch input:checked + .slider {
+  background-color: #568194;
+}
+
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* bg do toggle nao selecionado */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  /* bolinha no toggle */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=../css/style.css.map */

@@ -2,13 +2,13 @@
 
 {% block 'conteudo' %}
 
-<h1 class="border-bottom-blue pl-3 w-75 font-weight-bold">Formulário de {% block 'avaliado-form' %}{% endblock %}
-</h1>
-<div class="ml-2 pr-2 my-2 w-75">
+<h1 class="pl-3 my-2 w-75 font-weight-bold">Formulário de {% block 'avaliado-form' %}{% endblock %}</h1>
+
+<div class="ml-3 pr-3 my-2 w-75">
 
     <div class="d-flex align-items-center">
-        <p class="font-weight-bold mb-0 mr-2">Servidor efetivo da Codata:</p>
-        <p class="font-weight-bold mb-0 mr-1">Não</p>
+        <p class="font-weight-bold  mr-2">Servidor efetivo da Codata:</p>
+        <p class="font-weight-bold  mr-1">Não</p>
         <label class="switch m-0">
             {% if instance.efetivo %}
             <input type="checkbox" checked onclick="return false;">
@@ -18,36 +18,36 @@
             <span class="slider round"></span>
             {% endif %}
         </label>
-        <p class="font-weight-bold mb-0 ml-1">Sim</p>
+        <p class="font-weight-bold  ml-1">Sim</p>
     </div>
 
-    <div class="row">
-        <div class="col-5 d-flex flex-column pr-0">
-            <label class="mb-0">Diretoria</label>
-            <input type="text" readonly value="{{ instance.diretoria.sigla }}">
+    <div class="row my-2">
+        <div class="col-5 d-flex flex-column">
+            <label>Diretoria</label>
+            <input type="text" class="pl-2 text-uppercase" readonly value="{{ instance.diretoria.sigla }}">
         </div>
-        <div class="col-5 d-flex flex-column pr-0">
-            <label class="mb-0">Gerência (Locação)</label>
-            <input type="text" readonly value="{{ instance.gerencia }}">
+        <div class="col-5 d-flex flex-column">
+            <label>Gerência (Locação)</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.gerencia }}">
         </div>
         <div class="col-2 d-flex flex-column">
-            <label class="mb-0">Função</label>
-            <input type="text" readonly value="{{ instance.funcao }}">
+            <label>Função</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.funcao }}">
         </div>
     </div>
-    <div class="row">
-        <div class="col d-flex flex-column pr-0">
-            <label class="mb-0">Nome</label>
-            <input type="text" readonly value="{{ instance.nome }}">
+    <div class="row my-2">
+        <div class="col d-flex flex-column">
+            <label>Nome</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.nome }}">
         </div>
         <div class="col-3 d-flex flex-column">
-            <label class="mb-0">CPF</label>
-            <input type="text" readonly value="{{ instance.cpf }}">
+            <label>CPF</label>
+            <input type="text" class="pl-2" readonly value="{{ instance.cpf }}">
         </div>
     </div>
 </div>
 
-<div class="border border-dark m-2">
+<div class="border border-dark m-3">
     <div class="col scroll">
         <form>
             <small class="d-flex justify-content-end mr-4">Legenda: Ótimo (10,0), Bom (8,5), Regular (7,0) e
@@ -56,60 +56,60 @@
             <div class="col">
 
                 {% for avaliacao in avaliacoes %}
-                <fieldset class="form-group mb-0">
-                    <h5 class="ml-0 mb-2 py-2 font-weight-bold text-center aval-titulo">{{ forloop.counter}} -
+                <fieldset class="form-group ">
+                    <h5 class="mb-2 py-2 font-weight-bold text-center aval--titulo">{{ forloop.counter}} -
                         Critério de
                         {{avaliacao.categoria_avaliacao}}</h5>
-                    <div class="col py-3 text-left aval-bg">
+                    <div class="col py-3 text-left aval--bg">
                         <h6 class="col-form-label font-weight-bold">Grau de conhecimento para realização de
                             suas tarefas</h6>
-                        <div class="col p-0">
+                        <div class="col">
 
                             <div class="form-check d-flex align-items-center mb-3">
-                                <input class="form-check-input mt-0" type="radio"
+                                <input class="form-check-input" type="radio"
                                     name="gridRadios-{{avaliacao.categoria_avaliacao}}"
                                     id="radio-otima-{{avaliacao.categoria_avaliacao}}"
                                     value="otima-{{avaliacao.categoria_avaliacao}}" />
-                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval-topico"
+                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval"
                                     for="radio-otima-{{avaliacao.categoria_avaliacao}}">
                                     <span class="font-weight-bold align-self-center">O (10)</span>
-                                    <p class="col-md mb-0">{{avaliacao.avaliacao_otima}}</p>
+                                    <p class="col-md ">{{avaliacao.avaliacao_otima}}</p>
                                 </label>
                             </div>
 
                             <div class="form-check d-flex align-items-center mb-3">
-                                <input class="form-check-input mt-0" type="radio"
+                                <input class="form-check-input" type="radio"
                                     name="gridRadios-{{avaliacao.categoria_avaliacao}}"
                                     id="radio-boa-{{avaliacao.categoria_avaliacao}}"
                                     value="boa-{{avaliacao.categoria_avaliacao}}" />
-                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval-topico"
+                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval"
                                     for="radio-boa-{{avaliacao.categoria_avaliacao}}">
                                     <span class="font-weight-bold align-self-center">B (8,5)</span>
-                                    <p class="col-md mb-0">{{avaliacao.avaliacao_boa}}</p>
+                                    <p class="col-md ">{{avaliacao.avaliacao_boa}}</p>
                                 </label>
                             </div>
 
                             <div class="form-check d-flex align-items-center mb-3">
-                                <input class="form-check-input mt-0" type="radio"
+                                <input class="form-check-input" type="radio"
                                     name="gridRadios-{{avaliacao.categoria_avaliacao}}"
                                     id="radio-regular-{{avaliacao.categoria_avaliacao}}"
                                     value="regular-{{avaliacao.categoria_avaliacao}}" />
-                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval-topico"
+                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval"
                                     for="radio-regular-{{avaliacao.categoria_avaliacao}}">
                                     <span class="font-weight-bold align-self-center">R (7,0)</span>
-                                    <p class="col-md mb-0">{{avaliacao.avaliacao_regular}}</p>
+                                    <p class="col-md ">{{avaliacao.avaliacao_regular}}</p>
                                 </label>
                             </div>
 
                             <div class="form-check d-flex align-items-center mb-3">
-                                <input class="form-check-input mt-0" type="radio"
+                                <input class="form-check-input" type="radio"
                                     name="gridRadios-{{avaliacao.categoria_avaliacao}}"
                                     id="radio-insuficiente-{{avaliacao.categoria_avaliacao}}"
                                     value="insuficiente-{{avaliacao.categoria_avaliacao}}" />
-                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval-topico"
+                                <label class="row form-check-label mx-2 my-0 p-3 w-100 border border-dark aval"
                                     for="radio-insuficiente-{{avaliacao.categoria_avaliacao}}">
                                     <span class="font-weight-bold align-self-center">I (5,5)</span>
-                                    <p class="col-md mb-0">{{avaliacao.avaliacao_insuficiente}}</p>
+                                    <p class="col-md ">{{avaliacao.avaliacao_insuficiente}}</p>
                                 </label>
                             </div>
 
@@ -133,7 +133,7 @@
                 <div class="modal-body border border-dark border-bottom-0 text-center font-weight-bold pt-5 pb-2">
                     Formulário enviado com sucesso!
                 </div>
-                <div class="modal-footer border border-dark border-top-0 d-flex justify-content-center pt-2 pb-5">
+                <div class="modal-footer border border-dark border-to d-flex justify-content-center pt-2 pb-5">
                     <button type="button" class="btn text-uppercase font-weight-bold border-0 px-5 btn-enviar"
                         data-dismiss="modal">Ok</button>
                 </div>
@@ -141,6 +141,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
 

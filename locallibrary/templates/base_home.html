@@ -11,7 +11,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'avaliacao360/style.css' %}">
+    <link rel="stylesheet" href="{% static 'avaliacao360/css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
 
     <title>Avaliação 360°</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -28,26 +32,28 @@
         <img src="{% static 'logo-fundo-escuro.png' %}" height="56px" class="d-inline-block align-top" alt="">
     </nav>
 
-    <div class="col-md-2 p-0 menu-lateral">
+    <div class="pag row">
+        <div class="col-md-2 p-0 menu-lateral">
 
-        <div class="list-group-flush mt-5 text-center">
-            <div id="accordion">
+            <div class="list-group-flush mt-5 text-center">
+                <div id="accordion">
 
-                {% block 'menu-lateral' %}
-                {% endblock %}
+                    {% block 'menu-lateral' %}
+                    {% endblock %}
 
+                </div>
             </div>
+
+        </div>
+
+        <div class="border-right-blue">
+        </div>
+
+        <div class="col m-0 p-0">
+            {% block 'conteudo' %} {% endblock %}
         </div>
 
     </div>
-
-    <div class="border-right-blue">
-    </div>
-
-    <div class="m-0 p-0 conteudo">
-        {% block 'conteudo' %} {% endblock %}
-    </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
