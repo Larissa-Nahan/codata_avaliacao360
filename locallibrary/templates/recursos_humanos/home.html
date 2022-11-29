@@ -1,49 +1,55 @@
 {% extends '../base_home.html' %}
 
+{% load static %}
+
 {% block 'menu-lateral' %}
-<div class="card">
+<div class="card menu ">
     <div class="card-header p-0" id="headingOne">
-        <h5 class="mb-0">
-            <a href="{% url 'home-recursos_humanos' %}" class="btn text-dark m-0 w-100">Home</a>
+        <h5 class="">
+            <a href="{% url 'home-recursos_humanos' %}" class="btn menu--btn text-left w-100">Home</a>
         </h5>
     </div>
 </div>
-<div class="card">
+<div class="card menu">
     <div class="card-header p-0" id="headingTwo">
-        <h5 class="mb-0">
-            <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseTwo"
+        <h5 class="">
+            <button class="btn collapsed menu--btn text-left w-100" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="false" aria-controls="collapseTwo">
                 Usuário
             </button>
         </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="card-body p-0 text-left">
-            <a href="{% url 'listar_usuarios' %}"
-                class="list-group-item list-group-item-action text-dark m-0">-Listar</a>
+        <div class="p-0 card-body text-left">
+            <a href="{% url 'listar_usuarios' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Listar</a>
         </div>
-        <div class="card-body p-0 text-left">
-            <a href="{% url 'cadastrar_usuario' %}"
-                class="list-group-item list-group-item-action text-dark m-0">-Cadastrar</a>
+        <div class="p-0 card-body text-left">
+            <a href="{% url 'cadastrar_usuario' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Cadastrar</a>
         </div>
     </div>
 </div>
-
-<div class="card">
+<div class="card menu">
     <div class="card-header p-0" id="headingThree">
-        <h5 class="mb-0">
-            <button class="btn collapsed text-dark w-100" data-toggle="collapse" data-target="#collapseThree"
+        <h5 class="">
+            <button class="btn collapsed menu--btn text-left w-100" data-toggle="collapse" data-target="#collapseThree"
                 aria-expanded="false" aria-controls="collapseThree">
                 Avaliação de Desempenho
             </button>
         </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-        <div class="card-body p-0 text-left">
-            <a href="#" class="list-group-item list-group-item-action text-dark m-0">-Fator Avaliação</a>
-            <a href="{% url 'avaliacao_desempenho' %}"
-                class="list-group-item list-group-item-action text-dark m-0">-Fator Desempenho</a>
+        <div class="p-0 card-body text-left">
+            <a href="#" class="list-group-item list-group-item-action menu--btn pl-5 py-2">  Fator Avaliação</a>
+        </div>
+        <div class="p-0 card-body text-left">
+            <a href="{% url 'avaliacao_desempenho' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Fator Desempenho</a>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block 'conteudo' %}
+    <div class="d-flex justify-content-center mt-5">
+        <img src="{% static 'logo-fundo-claro.png' %}" class="m-auto" width="50%">
+    </div>
 {% endblock %}

@@ -69,7 +69,6 @@ table {
   position: absolute;
   width: 100%;
   top: 12%;
-  left: 1%;
 }
 
 .menu {
@@ -149,6 +148,11 @@ small {
   border-radius: 15px;
 }
 
+.btn-enviar:hover {
+  color: white;
+  background: #205e7f;
+}
+
 /* toggle tamanho/posicao */
 .switch {
   position: relative;
@@ -208,6 +212,18 @@ small {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.field--diretoria {
+  width: 300px;
+}
+
+.field--gerencia {
+  width: 300px;
+}
+
+.field--funcao {
+  width: 300px;
 }
 
 /*# sourceMappingURL=../css/style.css.map */

@@ -22,7 +22,6 @@ $pastel_blue: #a5c0cc;
     position: absolute;
     width: 100%;
     top: 12%;
-    left: 1%;
 }
 
 .menu {
@@ -100,6 +99,11 @@ small {
     color: white;
     background-color: $dark_cerulean;
     border-radius: 15px;
+
+    &:hover {
+        color: white;
+        background: $blue_sapphire;
+    }
 }
 
 /* toggle tamanho/posicao */
@@ -160,5 +164,16 @@ small {
 
     &.round:before {
         border-radius: 50%;
+    }
+}
+.field {
+    &--diretoria {
+        width: 300px;
+    }
+    &--gerencia {
+        width: 300px;
+    }
+    &--funcao {
+        width: 300px;
     }
 }
