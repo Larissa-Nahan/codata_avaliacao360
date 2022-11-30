@@ -5,6 +5,7 @@ from avaliacao.models import FatorDesempenhoDemerito, FatorDesempenhoMerito
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 import json
+import datetime
 
 def home(request):
     return render(request, "recursos_humanos/home.html")
@@ -44,6 +45,7 @@ def editar_usuario(request, id=None):
 def deletar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
     instance.delete()
+    instance.data_exclusao_usuario = datetime.datetime.now()
     return redirect("listar_usuarios")
 
 
@@ -55,6 +57,7 @@ def avaliacao_desempenho(request):
 def avaliar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
     form = AvaliacaoForm(request.POST or None, instance=instance)
+    instance.data_ultima_avaliacao = datetime.datetime.now()
 
     if form.is_valid():
         instance = form.save(commit=False)

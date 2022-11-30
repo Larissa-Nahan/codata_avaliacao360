@@ -62,7 +62,7 @@ class Usuario(models.Model):
     data_criacao_usuario = models.DateField(default=datetime.now, blank=False, null=False)
     data_atualizacao_usuario = models.DateField(blank=True, null=True)
     data_exclusao_usuario = models.DateField(blank=True, null=True)   
-    ultima_avaliacao = models.DateField(blank=True, null=True)
+    data_ultima_avaliacao = models.DateField(blank=True, null=True)
     
     setor = models.CharField(max_length=50)
     cargo = models.CharField(max_length=50)

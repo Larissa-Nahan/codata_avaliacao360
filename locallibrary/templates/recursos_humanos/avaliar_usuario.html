@@ -1,83 +1,89 @@
-{% extends '../home_usuarios.html' %}
+{% extends './home.html' %}
 
 {% block 'conteudo' %}
 
-<div class="col m-0 p-0">
-    <div class="col m-0 p-0">
-        <h1 class="border-bottom-blue pl-3 w-75 font-weight-bold">Avaliação do Fator Desempenho</h1>
-        <div class="mx-3 my-2">
-            <label class="mb-0 font-weight-bold">Servidor efetivo da Codata:</label>
+
+<h1 class="pl-3 my-2 w-75 font-weight-bold">Avaliação do Fator Desempenho</h1>
+
+<div class="ml-3 pr-3 my-2 w-75">
+
+    <div class="d-flex align-items-center">
+        <p class="font-weight-bold  mr-2">Servidor efetivo da Codata:</p>
+        <p class="font-weight-bold  mr-1">Não</p>
+        <label class="switch m-0">
             {% if instance.efetivo %}
             <input type="checkbox" checked onclick="return false;">
+            <span class="slider round"></span>
             {% else %}
             <input type="checkbox" onclick="return false;">
+            <span class="slider round"></span>
             {% endif %}
-            <div class="row">
-                <div class="col-3 d-flex flex-column pr-0">
-                    <label class="mb-0">Diretoria*</label>
-                    <input type="text" readonly value="{{ instance.diretoria }}">
-                </div>
-                <div class="col-3 d-flex flex-column pr-0">
-                    <label class="mb-0">Gerência*</label>
-                    <input type="text" readonly value="{{ instance.gerencia }}">
-                </div>
-                <div class="col-2 d-flex flex-column">
-                    <label class="mb-0">Função*</label>
-                    <input type="text" readonly value="{{ instance.funcao }}">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4 d-flex flex-column pr-0">
-                    <label class="mb-0">Nome*</label>
-                    <input type="text" readonly value="{{ instance.nome }}">
-                </div>
-                <div class="col-2 d-flex flex-column">
-                    <label class="mb-0">CPF*</label>
-                    <input type="text" readonly value="{{ instance.cpf }}">
-                </div>
-            </div>
-        </div>
-
-        <div class="border border-dark m-2">
-
-            <form action="" method="post" class="">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                <fieldset class="form-group">
-                    <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center dark-grey-bg">Critérios
-                        Meritórios</p>
-                    <div class="row mx-2 p-2 text-left light-grey-bg">
-                        <div class="pl-5">
-                            {{form.meritos}}
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset class="form-group">
-                    <p class="ml-4 mb-0 mt-2 mr-auto py-2 px-4 font-weight-bold text-center dark-grey-bg">Critérios
-                        Demeritórios</p>
-                    <div class="row mx-2 p-2 text-left light-grey-bg">
-                        <div class="pl-5">
-                            {{form.demeritos}}
-                        </div>
-                    </div>
-                </fieldset>
-
-
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-column mb-2 ml-5">
-                        <small class="mb-0">Anexar Documentos Comprobatórios</small>
-                        <input type="file" class="" id="file">
-                    </div>
-                    <div class="d-flex justify-content-end mr-5 mb-2">
-                        <input class="btn text-dark font-weight-bold pl-4 pr-4" style="background-color: #D9D9D9;"
-                            type="submit" value="Enviar">
-                    </div>
-                </div>
-            </form>
-        </div>
+        </label>
+        <p class="font-weight-bold  ml-1">Sim</p>
     </div>
 
-    <script>
 
-    </script>
-    {% endblock %}
+    <div class="row my-2">
+        <div class="col-5 d-flex flex-column">
+            <label>Diretoria</label>
+            <input type="text" class="pl-2 text-uppercase" readonly value="{{ instance.diretoria.sigla }}">
+        </div>
+        <div class="col-5 d-flex flex-column">
+            <label>Gerência (Locação)</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.gerencia }}">
+        </div>
+        <div class="col-2 d-flex flex-column">
+            <label>Função</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.funcao }}">
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col d-flex flex-column">
+            <label>Nome</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.nome }}">
+        </div>
+        <div class="col-3 d-flex flex-column">
+            <label>CPF</label>
+            <input type="text" class="pl-2" readonly value="{{ instance.cpf }}">
+        </div>
+    </div>
+</div>
+
+<div class="border border-dark m-3">
+    <form action="" method="post" class="">
+        {% csrf_token %}
+        <div class="col">
+            {{ form.non_field_errors }}
+            <fieldset class="form-group mx-3">
+                <h5 class="mb-2 mt-3 py-2 font-weight-bold text-center aval--titulo">Critérios
+                    Meritórios</h5>
+                <div class="col py-3 text-left aval--bg">
+                    {{form.meritos}}
+                </div>
+            </fieldset>
+            <fieldset class="form-group mx-3">
+                <h5 class="mb-2 py-2 font-weight-bold text-center aval--titulo">Critérios
+                    Demeritórios</h5>
+                <div class="col py-3 text-left aval--bg">
+                    {{form.demeritos}}
+                </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column mb-2 ml-5">
+                    <small class="mb-0">Anexar Documentos Comprobatórios</small>
+                    <input type="file" class="" id="file">
+                </div>
+
+                <div class="d-flex justify-content-end mt-3 mb-2">
+                    <input class="btn font-weight-bold px-5 py-2 btn--enviar" type="submit" value="Enviar">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+
+</script>
+{% endblock %}
