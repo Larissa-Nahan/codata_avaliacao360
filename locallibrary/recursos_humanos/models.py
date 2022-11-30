@@ -68,7 +68,7 @@ class Usuario(models.Model):
     cargo = models.CharField(max_length=50)
     funcao = models.CharField(max_length=20, choices=FUNCAO)
     classe = models.CharField(max_length=20, choices=CLASSE)
-    nivel = models.CharField(max_length=5, choices=NIVEL)
+    nivel = models.CharField(max_length=5, choices=NIVEL, blank=True, null=True)
     
     gerencia = models.ForeignKey('Gerencia', on_delete=models.CASCADE)
     diretoria = models.ForeignKey('Diretoria', on_delete=models.CASCADE)
