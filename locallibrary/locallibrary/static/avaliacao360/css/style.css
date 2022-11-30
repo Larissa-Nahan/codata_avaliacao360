@@ -226,4 +226,12 @@ small {
   width: 300px;
 }
 
+.diretoria select, .gerencia select, .funcao select {
+  width: 300px;
+}
+
+.funcao select {
+  width: 200px;
+}
+
 /*# sourceMappingURL=../css/style.css.map */
