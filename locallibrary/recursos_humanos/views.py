@@ -34,6 +34,7 @@ def gerencias(request):
 def editar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
     form = EditarUsuarioForm(request.POST or None, instance=instance)
+    instance.data_atualizacao_usuario = datetime.datetime.now()
 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -45,7 +46,6 @@ def editar_usuario(request, id=None):
 def deletar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
     instance.delete()
-    instance.data_exclusao_usuario = datetime.datetime.now()
     return redirect("listar_usuarios")
 
 
