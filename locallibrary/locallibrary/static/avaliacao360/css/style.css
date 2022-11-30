@@ -142,13 +142,24 @@ small {
   accent-color: #568194;
 }
 
-.btn-enviar {
+.btn--enviar {
+  color: white;
+  background: #205e7f;
+  border-radius: 15px;
+}
+
+.btn--enviar:hover {
+  color: white;
+  background-color: #194b69;
+}
+
+.btn--cancelar {
   color: white;
   background-color: #194b69;
   border-radius: 15px;
 }
 
-.btn-enviar:hover {
+.btn--cancelar:hover {
   color: white;
   background: #205e7f;
 }
@@ -226,7 +237,8 @@ small {
   width: 300px;
 }
 
-.diretoria select, .gerencia select, .funcao select {
+.diretoria select,
+.gerencia select {
   width: 300px;
 }
 

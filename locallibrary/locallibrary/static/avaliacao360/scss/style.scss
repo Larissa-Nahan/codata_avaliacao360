@@ -95,14 +95,26 @@ small {
     accent-color: $steel_teal;
 }
 
-.btn-enviar {
-    color: white;
-    background-color: $dark_cerulean;
-    border-radius: 15px;
-
-    &:hover {
+.btn {
+    &--enviar {
         color: white;
         background: $blue_sapphire;
+        border-radius: 15px;
+        
+        &:hover {
+            color: white;
+            background-color: $dark_cerulean;
+        }
+    }
+    &--cancelar {
+        color: white;
+        background-color: $dark_cerulean;
+        border-radius: 15px;
+        
+        &:hover {
+            color: white;
+            background: $blue_sapphire;
+        }
     }
 }
 
@@ -178,14 +190,15 @@ small {
     }
 }
 
-.diretoria, .gerencia  {
-    select{
+.diretoria,
+.gerencia {
+    select {
         width: 300px;
     }
 }
 
-.funcao  {
-    select{
+.funcao {
+    select {
         width: 200px;
     }
 }
