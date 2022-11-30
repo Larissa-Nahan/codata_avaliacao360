@@ -65,6 +65,14 @@ table {
   background-color: #205e7f;
 }
 
+.logo--login {
+  height: 20px;
+}
+
+.logo--login-big {
+  height: 40px;
+}
+
 .pag {
   position: absolute;
   width: 100%;

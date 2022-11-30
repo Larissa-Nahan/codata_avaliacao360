@@ -18,6 +18,16 @@ $pastel_blue: #a5c0cc;
     background-color: $blue_sapphire;
 }
 
+.logo{
+    &--login{
+        height: 20px;
+        
+        &-big{
+            height: 40px;
+        }
+    }
+}
+
 .pag {
     position: absolute;
     width: 100%;
