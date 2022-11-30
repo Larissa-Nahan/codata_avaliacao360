@@ -1,42 +1,44 @@
 {% extends './home.html' %}
 
 {% block 'conteudo' %}
-<div class="col col-9 m-0 p-0">
 
-    <h1 class="border-bottom-blue pl-3 w-75 font-weight-bold">Avaliação de Desempenho</h1>
+<h1 class="pl-3 my-2 w-75 font-weight-bold">Avaliação de Desempenho</h1>
 
-    <form class="form mt-3 ml-4">
-        <div class="input-group mb-3">
+<form class="form mt-3 mx-3">
+    <div class="input-group mb-3">
 
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Admissão</th>
-                        <th scope="col">Última Avaliação</th>
-                        <th scope="col">Avaliar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for usuario in usuarios %}
+        <table class="table table-bordered">
+            <thead>
+                <tr class="tabela--cabecalho">
+                    <th scope="col">CPF</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Admissão</th>
+                    <th scope="col">Última Avaliação</th>
+                    <th scope="col">Avaliar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
 
-                    <tr>
-                        <td>{{ usuario.cpf }}</th>
-                        <td>{{ usuario.nome }}</td>
-                        <td>{{ usuario.data_criacao_usuario }}</td>
+                <tr>
+                    <td>{{ usuario.cpf }}</th>
+                    <td>{{ usuario.nome }}</td>
+                    <td>{{ usuario.data_criacao_usuario }}</td>
+                    {% if usuario.data_ultima_avaliacao == None %}
+                        <td>Usuário não avaliado</td>
+                    {% else %}
                         <td>{{ usuario.data_ultima_avaliacao }}</td>
-                        <td>
-                            <a href="{% url 'avaliar_usuario' usuario.id %}" class="btn btn-link p-0">Avaliar</a>
-                        </td>
-                    </tr>
+                    {% endif %}
+                    <td>
+                        <a href="{% url 'avaliar_usuario' usuario.id %}" class="btn btn-link p-0">Avaliar</a>
+                    </td>
+                </tr>
 
-                    {% endfor %}
-                </tbody>
-            </table>
+                {% endfor %}
+            </tbody>
+        </table>
 
-        </div>
-    </form>
-</div>
+    </div>
+</form>
 
 {% endblock %}

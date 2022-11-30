@@ -202,3 +202,10 @@ small {
         width: 200px;
     }
 }
+
+.tabela{
+    &--cabecalho{
+        color: white;
+        background-color: $blue_sapphire;
+    }
+}
