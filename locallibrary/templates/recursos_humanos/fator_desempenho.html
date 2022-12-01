@@ -15,6 +15,7 @@
                     <th scope="col">Admissão</th>
                     <th scope="col">Última Avaliação</th>
                     <th scope="col">Avaliar</th>
+                    <th scope="col">Visualizar Avaliação</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,9 @@
                     {% endif %}
                     <td>
                         <a href="{% url 'avaliar_usuario' usuario.id %}" class="btn btn-link p-0">Avaliar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'visualizar_avaliacao_usuario' usuario.id %}" class="btn btn-link p-0">Visualizar</a>
                     </td>
                 </tr>
 

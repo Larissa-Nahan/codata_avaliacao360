@@ -12,4 +12,5 @@ urlpatterns = [
     
     path('fator_desempenho/', views.fator_desempenho, name='fator_desempenho'),
     path('avaliar_usuario/<int:id>', views.avaliar_usuario, name='avaliar_usuario'),
+    path('visualizar_avaliacao_usuario/<int:id>', views.visualizar_avaliacao_usuario, name='visualizar_avaliacao_usuario'),
 ]

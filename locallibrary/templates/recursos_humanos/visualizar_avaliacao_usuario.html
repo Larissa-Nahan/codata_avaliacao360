@@ -1,0 +1,106 @@
+{% extends './home.html' %}
+
+{% block 'conteudo' %}
+
+
+<h1 class="pl-3 my-2 w-75 font-weight-bold">Fator Desempenho</h1>
+
+<div class="ml-3 pr-3 my-2 w-75">
+
+    <div class="d-flex align-items-center">
+        <p class="font-weight-bold  mr-2">Servidor efetivo da Codata:</p>
+        <p class="font-weight-bold  mr-1">Não</p>
+        <label class="switch m-0">
+            {% if instance.efetivo %}
+            <input type="checkbox" checked onclick="return false;">
+            <span class="slider round"></span>
+            {% else %}
+            <input type="checkbox" onclick="return false;">
+            <span class="slider round"></span>
+            {% endif %}
+        </label>
+        <p class="font-weight-bold  ml-1">Sim</p>
+    </div>
+
+
+    <div class="row my-2">
+        <div class="col-5 d-flex flex-column">
+            <label>Diretoria</label>
+            <input type="text" class="pl-2 text-uppercase" readonly value="{{ instance.diretoria.sigla }}">
+        </div>
+        <div class="col-5 d-flex flex-column">
+            <label>Gerência (Locação)</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.gerencia }}">
+        </div>
+        <div class="col-2 d-flex flex-column">
+            <label>Função</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.funcao }}">
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col d-flex flex-column">
+            <label>Nome</label>
+            <input type="text" class="pl-2 text-capitalize" readonly value="{{ instance.nome }}">
+        </div>
+        <div class="col-3 d-flex flex-column">
+            <label>CPF</label>
+            <input type="text" class="pl-2" readonly value="{{ instance.cpf }}">
+        </div>
+    </div>
+</div>
+
+<div class="border border-dark m-3">
+    <form action="" method="post" class="">
+        {% csrf_token %}
+        <div class="col">
+            {{ form.non_field_errors }}
+            <fieldset class="form-group mx-3">
+                <h5 class="mb-2 mt-3 py-2 font-weight-bold text-center aval--titulo">Critérios
+                    Meritórios</h5>
+                <div class="col py-3 text-left aval--bg">
+                    {% if meritos_usuario %}
+                        {% for merito in meritos_usuario %}
+                        <div class="">
+                            <p>{{ merito }}</p>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há meritos</p>
+                    {% endif %}
+                </div>
+            </fieldset>
+            <fieldset class="form-group mx-3">
+                <h5 class="mb-2 py-2 font-weight-bold text-center aval--titulo">Critérios
+                    Demeritórios</h5>
+                <div class="col py-3 text-left aval--bg">
+                    {% if demeritos_usuario %}
+                        {% for demerito in demeritos_usuario %}
+                        <div class="">
+                            <p>{{ demerito }}</p>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há demeritos</p>
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column mb-2 ml-5">
+                    <small class="mb-0">Anexar Documentos Comprobatórios</small>
+                    <input type="file" class="" id="file">
+                </div>
+
+                <div class="d-flex justify-content-end mt-3 mb-2">
+                    <a href="{% url 'fator_desempenho' %}" class="btn font-weight-bold px-5 py-2 btn--cancelar"
+                    id="botao-cancelar">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

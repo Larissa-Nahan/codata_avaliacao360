@@ -63,6 +63,15 @@ def avaliar_usuario(request, id=None):
         instance = form.save(commit=False)
         instance.save()
         form.save_m2m()
-        return redirect("/recursos_humanos/avaliacao_desempenho")
+        return redirect("/recursos_humanos/fator_desempenho")
     
     return render(request, "recursos_humanos/avaliar_usuario.html", {"instance": instance, "form": form})
+
+def visualizar_avaliacao_usuario(request, id=None):
+    instance = get_object_or_404(Usuario, id=id)
+    meritos_usuario = instance.meritos.all()
+    demeritos_usuario = instance.demeritos.all()
+
+    print(demeritos_usuario)
+    
+    return render(request, "recursos_humanos/visualizar_avaliacao_usuario.html", {"instance": instance, "meritos_usuario": meritos_usuario, "demeritos_usuario": demeritos_usuario})
