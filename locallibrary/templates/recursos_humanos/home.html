@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block 'menu-lateral' %}
-<div class="card menu ">
+<div class="card menu">
     <div class="card-header p-0" id="headingOne">
         <h5 class="">
             <a href="{% url 'home-recursos_humanos' %}" class="btn menu--btn text-left w-100">Home</a>
@@ -21,35 +21,27 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="p-0 card-body text-left">
-            <a href="{% url 'listar_usuarios' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Listar</a>
+            <a href="{% url 'listar_usuarios' %}"
+                class="list-group-item list-group-item-action menu--btn pl-5 py-2">Listar</a>
         </div>
         <div class="p-0 card-body text-left">
-            <a href="{% url 'cadastrar_usuario' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Cadastrar</a>
+            <a href="{% url 'cadastrar_usuario' %}"
+                class="list-group-item list-group-item-action menu--btn pl-5 py-2">Cadastrar</a>
         </div>
     </div>
 </div>
+
 <div class="card menu">
     <div class="card-header p-0" id="headingThree">
         <h5 class="">
-            <button class="btn collapsed menu--btn text-left w-100" data-toggle="collapse" data-target="#collapseThree"
-                aria-expanded="false" aria-controls="collapseThree">
-                Avaliações
-            </button>
+            <a href="{% url 'avaliacao_desempenho' %}" class="btn menu--btn text-left w-100">Fator Desempenho</a>
         </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-        <div class="p-0 card-body text-left">
-            <a href="#" class="list-group-item list-group-item-action menu--btn pl-5 py-2">  Fator Avaliação</a>
-        </div>
-        <div class="p-0 card-body text-left">
-            <a href="{% url 'avaliacao_desempenho' %}" class="list-group-item list-group-item-action menu--btn pl-5 py-2">Fator Desempenho</a>
-        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block 'conteudo' %}
-    <div class="d-flex justify-content-center mt-5">
-        <img src="{% static 'logo-fundo-claro.png' %}" class="m-auto" width="50%">
-    </div>
+<div class="d-flex justify-content-center mt-5">
+    <img src="{% static 'logo-fundo-claro.png' %}" class="m-auto" width="50%">
+</div>
 {% endblock %}
