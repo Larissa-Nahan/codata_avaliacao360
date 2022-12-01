@@ -49,10 +49,10 @@ def deletar_usuario(request, id=None):
     return redirect("listar_usuarios")
 
 
-def avaliacao_desempenho(request):
+def fator_desempenho(request):
     usuarios = Usuario.objects.all()
 
-    return render(request, "recursos_humanos/avaliacao_desempenho.html", {'usuarios': usuarios})
+    return render(request, "recursos_humanos/fator_desempenho.html", {'usuarios': usuarios})
 
 def avaliar_usuario(request, id=None):
     instance = get_object_or_404(Usuario, id=id)
