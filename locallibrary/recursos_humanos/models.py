@@ -56,16 +56,18 @@ class Usuario(models.Model):
 
     nome = models.CharField(max_length=100, blank=False, null=False)
     senha = models.CharField(max_length=20, blank=False, null=False)
-    email = models.EmailField(blank=False, null=False)
+    email = models.EmailField(blank=True, null=False)
     cpf = models.CharField(max_length=14, blank=False, null=False)
+    matricula = models.CharField(max_length=8, blank=True, null=True)
     
     data_criacao_usuario = models.DateField(default=datetime.now, blank=False, null=False)
+    data_admissao_usuario = models.DateField(blank=True, null=True)
     data_atualizacao_usuario = models.DateField(blank=True, null=True)
     data_inativacao_usuario = models.DateField(blank=True, null=True)   
     data_ultima_avaliacao = models.DateField(blank=True, null=True)
     
-    setor = models.CharField(max_length=50)
-    cargo = models.CharField(max_length=50)
+    setor = models.CharField(max_length=50, blank=True)
+    cargo = models.CharField(max_length=50, blank=True)
     funcao = models.CharField(max_length=20, choices=FUNCAO)
     classe = models.CharField(max_length=20, choices=CLASSE)
     nivel = models.CharField(max_length=5, choices=NIVEL, blank=True, null=True)

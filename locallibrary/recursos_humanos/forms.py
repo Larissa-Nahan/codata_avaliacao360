@@ -12,6 +12,8 @@ class CadastrarUsuarioForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['gerencia'].queryset = Gerencia.objects.none()
 
+        data_admissao_usuario = forms.DateField(input_formats='%d/%m/%Y')
+
         if 'diretoria' in self.data:
             try:
                 id_diretoria = int(self.data.get('diretoria'))
@@ -23,12 +25,14 @@ class CadastrarUsuarioForm(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ['efetivo', 'diretoria', 'gerencia', 'funcao', 'nome', 'cpf', 'nivel']
+        fields = ['efetivo', 'diretoria', 'gerencia', 'funcao', 'data_admissao_usuario', 'nome', 'cpf', 'matricula', 'nivel']
 
 class EditarUsuarioForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['gerencia'].queryset = Gerencia.objects.none()
+
+        data_admissao_usuario = forms.DateField(input_formats='%d/%m/%Y')
 
         if 'diretoria' in self.data:
             try:
@@ -41,7 +45,7 @@ class EditarUsuarioForm(forms.ModelForm):
             
     class Meta:
         model = Usuario
-        fields = ['efetivo', 'inativo', 'diretoria', 'gerencia', 'funcao', 'nome', 'cpf', 'nivel']
+        fields = ['efetivo', 'inativo', 'diretoria', 'gerencia', 'funcao', 'data_admissao_usuario', 'nome', 'cpf', 'matricula', 'nivel']
 
 
 class AvaliacaoForm(forms.ModelForm):

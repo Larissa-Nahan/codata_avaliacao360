@@ -1,4 +1,4 @@
-@import "avaliacao360/css/reset";
+@import "reset";
 
 $dark_cerulean: #194b69;
 $blue_sapphire: #205e7f;
@@ -18,11 +18,11 @@ $pastel_blue: #a5c0cc;
     background-color: $blue_sapphire;
 }
 
-.logo{
-    &--login{
+.logo {
+    &--login {
         height: 20px;
-        
-        &-big{
+
+        &-big {
             height: 40px;
         }
     }
@@ -110,7 +110,7 @@ small {
         color: white;
         background: $blue_sapphire;
         border-radius: 15px;
-        
+
         &:hover {
             color: white;
             background-color: $dark_cerulean;
@@ -120,7 +120,7 @@ small {
         color: white;
         background-color: $dark_cerulean;
         border-radius: 15px;
-        
+
         &:hover {
             color: white;
             background: $blue_sapphire;
@@ -213,8 +213,18 @@ small {
     }
 }
 
-.tabela{
-    &--cabecalho{
+.data_admissao_usuario {
+    input {
+        width: 150px;
+    }
+}
+
+input, select{
+    padding: 10px;
+}
+
+.tabela {
+    &--cabecalho {
         color: white;
         background-color: $blue_sapphire;
     }

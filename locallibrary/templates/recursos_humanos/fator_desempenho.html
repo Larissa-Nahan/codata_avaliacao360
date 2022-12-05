@@ -9,10 +9,10 @@
 
         <table class="table table-bordered">
             <thead>
-                <tr class="tabela--cabecalho">
+                <tr class="tabela--cabecalho text-center font-weight-bold">
                     <th scope="col">CPF</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Admissão</th>
+                    <th scope="col">Data de Admissão</th>
                     <th scope="col">Última Avaliação</th>
                     <th scope="col">Avaliar</th>
                     <th scope="col">Visualizar Avaliação</th>
@@ -24,7 +24,11 @@
                 <tr>
                     <td>{{ usuario.cpf }}</th>
                     <td>{{ usuario.nome }}</td>
-                    <td>{{ usuario.data_criacao_usuario }}</td>
+                    {% if usuario.data_admissao_usuario == None %}
+                        <td>Usuário sem data de admissão</td>
+                    {% else %}
+                        <td>{{ usuario.data_admissao_usuario }}</td>
+                    {% endif %}
                     {% if usuario.data_ultima_avaliacao == None %}
                         <td>Usuário não avaliado</td>
                     {% else %}

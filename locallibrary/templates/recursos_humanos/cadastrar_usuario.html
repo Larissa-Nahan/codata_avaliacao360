@@ -36,6 +36,11 @@
                 <label class="mb-0" for="{{ form.funcao.funcao }}">Função*</label>
                 <div class="funcao">{{ form.funcao }}</div>
             </div>
+            <div class="my-5 mx-3">
+                {{ form.data_admissao_usuario.errors }}
+                <label class="mb-0" for="{{ form.data_admissao_usuario.data_admissao_usuario }}">Data de Admissão</label>
+                <div class="data_admissao_usuario">{{ form.data_admissao_usuario }}</div>
+            </div>
         </div>
         
         <div class="border-bottom border-dark w-100"></div>
@@ -50,6 +55,11 @@
                 {{ form.cpf.errors }}
                 <label class="mb-0" for="{{ form.cpf.cpf }}">CPF*</label>
                 <div>{{ form.cpf }}</div>
+            </div>
+            <div class="mx-3 my-5 fieldWrapper">
+                {{ form.matricula.errors }}
+                <label class="mb-0" for="{{ form.matricula.matricula }}">Matrícula</label>
+                <div>{{ form.matricula }}</div>
             </div>
             <div class="mx-3 my-5 fieldWrapper">
                 <label class="mb-0" for="{{ form.nivel.nivel }}">Nível</label>

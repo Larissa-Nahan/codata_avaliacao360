@@ -44,6 +44,12 @@
             <label>CPF</label>
             <input type="text" class="pl-2" readonly value="{{ instance.cpf }}">
         </div>
+        {% if instance.matricula != None %}
+            <div class="col-3 d-flex flex-column">
+                <label>Matrícula</label>
+                <input type="text" class="pl-2" readonly value="{{ instance.matricula }}">
+            </div>
+        {% endif %}
     </div>
 </div>
 
