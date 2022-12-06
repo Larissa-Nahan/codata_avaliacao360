@@ -19,7 +19,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -31,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  font-family: "Rhodium Libre", serif;
 }
 
 ol, ul {
@@ -234,10 +234,6 @@ small {
 
 .data_admissao_usuario input {
   width: 150px;
-}
-
-input, select {
-  padding: 10px;
 }
 
 .tabela--cabecalho {
